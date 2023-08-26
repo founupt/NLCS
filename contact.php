@@ -43,30 +43,40 @@ $actitive = "contact";
         </div> -->
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-white p-5 contact-form">
+            <form onsubmit="showMessageBox()" action="#" class="bg-white p-5 contact-form">
                     <h1 style=" text-align: center;">ĐĂNG KÍ</h1>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Họ và tên">
+                <input id="name" type="text" class="form-control" placeholder="Họ và tên" required>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder=" Email">
+                <input id="email" type="text" class="form-control" placeholder=" Email" required>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Số điện thoại">
+                <input id="sdt" type="text" class="form-control" placeholder="Số điện thoại" required>
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Địa chỉ"></textarea>
+                <textarea id="address" name=""  cols="30" rows="7" class="form-control" placeholder="Địa chỉ" required></textarea>
               </div>
               <div class="form-group">
                 <!-- <input type="submit" value="Đăng kí" class="btn btn-primary py-3 px-5"> -->
-                <button onclick="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="btnDatHang">Đăng kí</button>
+                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="btnDatHang">Đăng kí</button>
     				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Thanh toán</a></p> -->
-					    <script>
+          
+            <script>
 						    function showMessageBox() {
-    						var message = "Đăng kí thành công";
+    						var message = "Đã đăng kí thành công!";
     						alert(message);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('sdt').value = '';
+                var textarea = document.getElementById("address");
+                    textarea.value = "";
+                console.log(document.getElementById('address'));
+             
 							}
+              
 					    </script>
+            
               </div>
             </form>
           
