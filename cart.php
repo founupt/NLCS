@@ -16,8 +16,8 @@ $actitive = "cart";
     </div>
 
     <section class="ftco-section ftco-cart">
-			<div class="container">
-				<div class="row">
+	 <div class="container">
+			  <div class="row">
     			<div class="col-md-12 ftco-animate">
     				<div class="cart-list">
 	    				<table class="table">
@@ -78,68 +78,65 @@ $actitive = "cart";
 					  </div>
     			</div>
     		</div>
-    		<div class="row justify-content-end">
+		</div>
+
+			
+    	<div class="row justify-content-end">
+				<!-- mã giảm giá -->
     			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
+    			<div class="cart-total mb-3">
     					<h3>Mã giảm giá</h3>
-    					<p>Nhập mã giảm giá/p>
-  						<form action="#" class="info">
+    					<p>Nhập mã giảm giá</p>
+  				<form action="#" class="info">
 	              <div class="form-group">
 	              	<label for="">Mã giảm giá</label>
 	                <input type="text" class="form-control text-left px-3" placeholder="">
 	              </div>
 	            </form>
     			</div>
-    				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Áp dụng mã giảm giá</a></p> -->
-    			</div>
-    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
-    					<h3>Thông tin vận chuyển</h3>
-    					<p>Nhập thông tin vận chuyển</p>
-  						<form action="#" class="info">
-	              <div class="form-group">
-	              	<label for="">Địa chỉ cụ thể</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	              <div class="form-group">
-	              	<label for="country">SDT</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	              <div class="form-group">
-	              	<label for="country">Số nhà </label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-				  <div class="d-block my-3">
-                            <div class="custom-control custom-radio">
-                                <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required=""
-                                    value="1">
-                                <label class="custom-control-label" for="httt-1">Tiền mặt</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""
-                                    value="2">
-                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""
-                                    value="3">
-                                <label class="custom-control-label" for="httt-3">Ship COD</label>
-                            </div>
-                        </div>
-	            </form>
-    				</div>
-					
-    				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Lưu</a></p> -->
-					<!-- <script>
-					function showMessageBox() {
-    					alert("Đây là một thông báo từ JavaScript!");
-							}
-			</script> -->
+    		 	</div>
+			
+		<!--hết mã giảm giá -->
 
-					<!-- <script>alert('Đã lưu thông tin');</script> -->
-					  
-    			</div>
-    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+		<div class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+		<div class="cart-total mb-3">
+          	<!-- <div class="col-md-6 order-md-last d-flex"> -->
+            <form onsubmit="showMessageBox()" action="#" class="bg-white p-5 contact-form">
+                    <h5 style=" text-align: center;">Thông tin đặt hàng</h5>
+              <div class="form-group">
+                <input id="name" type="text" class="form-control" placeholder="Họ và tên" required>
+              </div>
+              <div class="form-group">
+                <input id="email" type="text" class="form-control" placeholder=" Email" required>
+              </div>
+              <div class="form-group">
+                <input id="sdt" type="text" class="form-control" placeholder="Số điện thoại" required>
+              </div>
+              <div class="form-group">
+                <textarea id="address" name=""  cols="30" rows="7" class="form-control" placeholder="Địa chỉ" required></textarea>
+              </div>
+              <div class="form-group">
+                <!-- <input type="submit" value="Đăng kí" class="btn btn-primary py-3 px-5"> -->
+                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="btnDatHang">Thanh toán</button>
+    				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Thanh toán</a></p> -->
+            			<script>
+						    function showMessageBox() {
+    						var message = "Đơn hàng hoàn tất thành công!";
+    						alert(message);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('sdt').value = '';
+                var textarea = document.getElementById("address");
+                    textarea.value = "";
+                console.log(document.getElementById('address'));
+							}
+					    </script>
+				</div>
+            </form>
+		 </div>
+		</div>
+
+		<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
     				<div class="cart-total mb-3">
     					<h3>Giỏ hàng </h3>
     					<p class="d-flex">
@@ -161,18 +158,80 @@ $actitive = "cart";
     					</p>
 						
     				</div>
-					<button onclick="showMessageBox()" class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt hàng</button>
-    				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Thanh toán</a></p> -->
+				</div>
+		</div>
+          
+          
+
+
+    			<!-- <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Thông tin vận chuyển</h3>
+    					<p>Nhập thông tin vận chuyển</p>
+  				<form onsubmit="showMessageBox()" action="#" class="info">
+	              <div class="form-group">
+					  <input id ="name" type="text" class="form-control text-left px-3" placeholder="Họ tên khách hàng" required>
+	              </div>
+				  <div class="form-group">
+	                <input id="email" type="text" class="form-control text-left px-3" placeholder="Gmail" required>
+	              </div>
+	              <div class="form-group">
+	            
+	                <input id="sdt" type="text" class="form-control text-left px-3" placeholder="Số điện thoại" required>
+	              </div>
+	              <div class="form-group">
+	              
+	                <input id="address" type="text" class="form-control text-left px-3" placeholder="Địa chỉ" required>
+	              </div>
+				  <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                                <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                    value="1">
+                                <label class="custom-control-label" for="httt-1">Tiền mặt</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                    value="2">
+                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                    value="3">
+                                <label class="custom-control-label" for="httt-3">Ship COD</label>
+                            </div>
+                        </div>
+	            </form>
+    				</div>
+					
+    				 <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Lưu</a></p> -->
+					<!-- <script>
+					function showMessageBox() {
+    					alert("Đây là một thông báo từ JavaScript!");
+							}
+					</script> -->
+
+					<!-- <script>alert('Đã lưu thông tin');</script> -->
+					  
+    			<!-- </div>  -->
+    			
+					<!-- <button onsubmit="showMessageBox()" class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt hàng</button>
+    				
 					<script>
 						function showMessageBox() {
     						var message = "Hoàn tất đơn hàng";
     						alert(message);
+               				document.getElementById('email').value = '';
+                			document.getElementById('sdt').value = '';
+							var textarea = document.getElementById("address");
+                   			textarea.value = "";
+                			console.log(document.getElementById('address'));
 							}
-					</script>
-    			</div>
-    		</div>
-			</div>
-		</section>
+
+					</script> -->
+    			
+    		<!-- </div> -->
+		</div>
+	</section>
 			
 
 	<?php

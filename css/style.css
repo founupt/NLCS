@@ -56,7 +56,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  text-align: left;
+  text-align: center;
   background-color: #fff; }
 
 [tabindex="-1"]:focus {
@@ -2027,7 +2027,7 @@ textarea.form-control {
       margin-bottom: 0; } }
 
 .btn {
-  display: inline-block;
+  display:inline-block;
   font-weight: 400;
   color: #212529;
   text-align: center;
@@ -8518,7 +8518,10 @@ h1, h2, h3, h4, h5,
   .btn.btn-primary {
     background: #82ae46;
     border: 1px solid #82ae46;
-    color: #fff; }
+    color: #fff;
+    justify-content: center;  
+    align-items: center;
+  }
     .btn.btn-primary:hover {
       border: 1px solid #82ae46;
       background: transparent;
