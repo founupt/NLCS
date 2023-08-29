@@ -4,7 +4,7 @@ $actitive = "shop";
 ?>
     <!-- END nav -->
 
-    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap hero-bread" style="background-image: url('images/br.jpg');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -235,7 +235,7 @@ $actitive = "shop";
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Pizza Hut</a></h3>
+    						<h3><a href="product-single.php">Pizza Hut</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
 		    						<p class="price"><span>120.000vnd</span></p>
@@ -321,7 +321,7 @@ $actitive = "shop";
 	    					<div class="overlay"></div>
 	    				</a>
     					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Sabu Sabu</a></h3>
+    						<h3><a href="sabusabu.php">Sabu Sabu</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
 		    						<p class="price"><span>120.000vnd</span></p>
