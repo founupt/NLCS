@@ -47,7 +47,7 @@
 						    <span class="text">youremail@email.com</span>
 					    </div>
 					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+						    <!-- <span class="text">3-5 Business days delivery &amp; Free Returns</span> -->
 					    </div>
 				    </div>
 			    </div>
@@ -75,7 +75,7 @@
               </div>
             </li>
 	          <li class="nav-item active"><a href="about.php" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="vietbai.php" class="nav-link">Viết bài</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Đăng kí</a></li>
 	          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 

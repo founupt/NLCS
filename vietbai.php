@@ -7,8 +7,8 @@ $actitive = "blog";
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home</a></span> <span>Blog</span></p>
-            <h1 class="mb-0 bread">Blog</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home</a></span> <span>Viết bài</span></p>
+            <h1 class="mb-0 bread">Viết bài</h1>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@ $actitive = "blog";
 						<div class="row">
 							<div class="col-md-12 d-flex ftco-animate">
 		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single.php" class="block-20" style="background-image: url('images/image_1.jpg');">
+		              <a href="blog-single.php" class="block-20" style="background-image: url('images/bg_1.jpg');">
 		              </a>
 		              <div class="text d-block pl-md-4">
 		              	<div class="meta mb-3">
