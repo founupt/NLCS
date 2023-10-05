@@ -4,7 +4,7 @@
     @include('../classes/brand.php');
 ?>
 <?php
-    @include('../classes/category.php');
+    @include('../classes/type.php');
 ?>
 <?php
     @include('../classes/product.php');
@@ -34,7 +34,7 @@
                         <label>Tên món</label>
                     </td>
                     <td>
-                        <input type="text" name = "SP_TEN" placeholder="Nhập tên món" class="medium" />
+                        <input type="text" name = "MA_TEN" placeholder="Nhập tên món" class="medium" />
                     </td>
                 </tr>
 				<tr>
@@ -42,11 +42,11 @@
                         <label>Loại món ăn</label>
                     </td>
                     <td>
-                        <select id="select" name="danhmuc">
+                        <select id="select" name="loaimonan">
                             <option>Chọn mã loại</option>
                             <?php
-                                $cat = new category();
-                                $catlist = $cat->show_category();
+                                $cat = new type();
+                                $catlist = $cat->show_type();
                                 if($catlist){
                                     while($result = $catlist -> fetch_assoc()){
                             ?>
@@ -58,27 +58,6 @@
                         </select>
                     </td>
                 </tr>
-				<tr>
-                    <!-- <td>
-                        <label>Thương hiệu sản phẩm</label>
-                    </td>
-                    <td>
-                        <select id="select" name="loai_sp">
-                            <option>Chọn mã thương hiệu</option>
-                            <?php
-                                $brand = new brand();
-                                $brandlist = $brand->show_brand();
-                                if($brandlist){
-                                    while($result = $brandlist -> fetch_assoc()){
-                            ?>
-                            <option value="<?php echo $result['LSP_MA']?>"><?php echo $result['LSP_TEN']?></option>
-                            <?php
-                               }
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr> -->
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
@@ -122,8 +101,8 @@
                     <td>
                         <select id="select" name="MA_TINHTRANG">
                             <option>Chọn trạng thái</option>
-                            <option value="0">Duyệt </option>
-                            <option value="1">Không duyệt</option>
+                            <option value="0">Còn món </option>
+                            <option value="1">Hết món</option>
                         </select>
                     </td>
                 </tr>

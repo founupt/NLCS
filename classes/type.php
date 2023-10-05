@@ -6,7 +6,7 @@ $filepath = realpath(dirname(__FILE__));
 ?>
 
 <?php 
-class category
+class type
 {
     private $db;
     private $fm;
@@ -15,15 +15,15 @@ class category
         $this -> db = new Database();
         $this -> fm= new Format();
     }
-    public function insert_category($DMSP_TEN){
-        $DMSP_TEN = $this -> fm -> validation ($DMSP_TEN);
-        $DMSP_TEN = mysqli_real_escape_string($this->db->link, $DMSP_TEN);
+    public function insert_type($LMA_TEN){
+        $LMA_TEN = $this -> fm -> validation ($LMA_TEN);
+        $LMA_TEN = mysqli_real_escape_string($this->db->link, $LMA_TEN);
 
-        if(empty($DMSP_TEN)){
+        if(empty($LMA_TEN)){
             $alert = "<span class='error'> Danh mục sản phẩm không được trống!!!</span>";
             return $alert;
         }else{
-            $query = "INSERT INTO danhmuc(DMSP_TEN) VALUES ('$DMSP_TEN')";
+            $query = "INSERT INTO danhmuc(DMSP_TEN) VALUES ('$LMA_TEN')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm danh mục sản phẩm thành công!</span>";
@@ -37,22 +37,22 @@ class category
         }
 
     }
-    public function show_category (){
-        $query = "SELECT * FROM danhmuc ORDER BY DMSP_MA DESC";
+    public function show_type (){
+        $query = "SELECT * FROM loaimonan ORDER BY LMA_MA DESC";
         $result = $this->db->select($query);
         return $result;
     }
 
-    public function update_category($DMSP_TEN,$id){
-        $DMSP_TEN = $this -> fm -> validation ($DMSP_TEN);
-        $DMSP_TEN = mysqli_real_escape_string($this->db->link, $DMSP_TEN);
+    public function update_type($LMA_TEN,$id){
+        $LMA_TEN = $this -> fm -> validation ($LMA_TEN);
+        $LMA_TEN = mysqli_real_escape_string($this->db->link, $LMA_TEN);
         $id = mysqli_real_escape_string($this->db->link, $id);
 
-        if(empty($DMSP_TEN)){
+        if(empty($LMA_TEN)){
             $alert = "<span class='error'> Danh mục sản phẩm không được trống!!!</span>";
             return $alert;
         }else{
-            $query = "UPDATE danhmuc SET DMSP_TEN = '$DMSP_TEN' WHERE DMSP_MA = '$id'";
+            $query = "UPDATE loaimonan SET LMA_TEN = '$LMA_TEN' WHERE LMA_MA = '$id'";
             $result = $this->db->update($query);
             if($result){
                 $alert = "<span class='success'> Cập nhật danh mục sản phẩm thành công!</span>";
@@ -66,8 +66,8 @@ class category
         }
     }
 
-    public function delete_category($id) {
-        $query = "DELETE FROM danhmuc WHERE DMSP_MA = '$id'";
+    public function delete_type($id) {
+        $query = "DELETE FROM loaimonan WHERE LMA_MA = '$id'";
         $result = $this->db->delete($query);
         if($result){
             $alert = "<span class='success'> Xóa danh mục sản phẩm thành công!</span>";
@@ -78,7 +78,7 @@ class category
         }   
     }
     public function getcatbyId($id){
-        $query = "SELECT * FROM danhmuc WHERE DMSP_MA = '$id'";
+        $query = "SELECT * FROM loaimonan WHERE LMA_MA = '$id'";
         $result = $this->db->select($query);
         return $result;
     }

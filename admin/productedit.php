@@ -38,15 +38,15 @@
                         <label>Tên sản phẩm</label>
                     </td>
                     <td>
-                        <input type="text" name = "SP_TEN" value="<?php echo $result_product['SP_TEN']?>" class="medium" />
+                        <input type="text" name = "MA_TEN" value="<?php echo $result_product['MA_TEN']?>" class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <label>Danh mục sản phẩm</label>
+                        <label>Loại món ăn</label>
                     </td>
                     <td>
-                        <select id="select" name="danhmuc">
+                        <select id="select" name="loaimonan">
                             <option>Chọn mã danh mục</option>
                             <?php
                                 $cat = new category();
@@ -55,8 +55,8 @@
                                     while($result = $catlist -> fetch_assoc()){
                             ?>
                             <option 
-                            <?php if($result['DMSP_MA']==$result_product['DMSP_MA']) { echo 'selected'; }?>
-                            value="<?php echo $result['DMSP_MA']?>"><?php echo $result['DMSP_TEN']?></option>
+                            <?php if($result['LMA_MA']==$result_product['LMA_MA']) { echo 'selected'; }?>
+                            value="<?php echo $result['LMA_MA']?>"><?php echo $result['LMA_TEN']?></option>
                             <?php
                                }
                             }
