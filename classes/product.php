@@ -16,7 +16,6 @@ class product
     }
     public function insert_product($data,$files){
         $MA_TEN       = mysqli_real_escape_string($this->db->link, $data['MA_TEN']);
-        $MA_HINHANH      = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
         $MA_GIA       = mysqli_real_escape_string($this->db->link, $data['MA_GIA']);
         $MA_MOTA = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
         $MA_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['MA_TINHTRANG']);
@@ -39,13 +38,13 @@ class product
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
         $uploaded_image = "uploads/".$unique_image;
 
-        if($MA_TEN == "" || $MA_GIA == "" || $MA_HINHANH == "" || $MA_TINHTRANG =="" || $MA_MOTA == ""){
+        if($MA_TEN == "" || $MA_GIA == "" || $MA_TINHTRANG =="" || $MA_MOTA == ""){
             $alert = "<span class='error'> Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
             move_uploaded_file($file_temp,$uploaded_image);
             $query = "INSERT INTO monan(MA_TEN, MA_GIA, MA_HINHANH, MA_MOTA, MA_TINHTRANG)
-            VALUES ('$MA_TEN','$MA_GIA','$MA_HINHANH','$unique_image')";
+            VALUES ('$MA_TEN','$MA_GIA','$unique_image','$MA_MOTA', '$MA_TINHTRANG')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm sản phẩm thành công!</span>";

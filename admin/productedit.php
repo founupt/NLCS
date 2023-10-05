@@ -47,10 +47,10 @@
                     </td>
                     <td>
                         <select id="select" name="loaimonan">
-                            <option>Chọn mã danh mục</option>
+                            <option>Chọn mã loại</option>
                             <?php
-                                $cat = new category();
-                                $catlist = $cat->show_category();
+                                $cat = new type();
+                                $catlist = $cat->show_type();
                                 if($catlist){
                                     while($result = $catlist -> fetch_assoc()){
                             ?>
@@ -64,7 +64,7 @@
                         </select>
                     </td>
                 </tr>
-				<tr>
+				<!-- <tr>
                     <td>
                         <label>Thương hiệu sản phẩm</label>
                     </td>
@@ -78,22 +78,22 @@
                                     while($result = $brandlist -> fetch_assoc()){
                             ?>
                             <option 
-                            <?php if($result['LSP_MA']==$result_product['LSP_MA']) { echo 'selected'; }?>
-                            value="<?php echo $result['LSP_MA']?>"><?php echo $result['LSP_TEN']?></option>
+                            <?php if($result['LMA_MA']==$result_product['LMA_MA']) { echo 'selected'; }?>
+                            value="<?php echo $result['LMA_MA']?>"><?php echo $result['LMA_TEN']?></option>
                             <?php
                                }
                             }
                             ?>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
-                        <label>Mô tả sản phẩm</label>
+                        <label>Mô tả món ăn</label>
                     </td>
                     <td>
-                        <textarea name="SP_MOTA" class="tinymce" <?php echo $result_product['SP_MOTA']?>></textarea>
+                        <textarea name="MA_MOTA" class="tinymce" <?php echo $result_product['MA_MOTA']?>></textarea>
                     </td>
                 </tr>
 				<tr>
@@ -101,7 +101,7 @@
                         <label>Giá gốc</label>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo $result_product['SP_GIA']?>" name="SP_GIA"  class="medium" />
+                        <input type="text" value="<?php echo $result_product['MA_GIA']?>" name="MA_GIA"  class="medium" />
                     </td>
                 </tr>
             
@@ -110,53 +110,30 @@
                         <label>Hình ảnh sản phẩm</label>
                     </td>
                     <td>
-                        <img src="uploads/<?php echo $result_product['SP_HINHANH']?>" width="70px"><br>
-                        <input type="file" name="SP_HINHANH"/>
+                        <img src="uploads/<?php echo $result_product['MA_HINHANH']?>" width="70px"><br>
+                        <input type="file" name="MA_HINHANH"/>
                     </td>
                 </tr>
 
-				<tr>
+				<!-- <tr>
                     <td>
                         <label>Màu sản phẩm</label>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo $result_product['SP_MAU']?>" name="SP_MAU"  class="medium" />
+                        <input type="text" value="" name="SP_MAU"  class="medium" />
                     </td>
-                </tr>
+                </tr> -->
 
-				<tr>
-                    <td>
-                        <label>Trạng thái sản phẩm</label>
-                    </td>
-                    <td>
-                        <select id="select" name="SP_TRANGTHAI">
-                            <option>Chọn trạng thái</option>
-                            <?php
-                            if($result_product['SP_TRANGTHAI']==0){
-                            ?>
-                                <option selected value="0">Nổi bật</option>
-                                <option value="1">Không nổi bật</option>
-                            <?php
-                            }else{
-                                ?> 
-                                <option value="0">Nổi bật</option>
-                                <option selected value="1">Không nổi bật</option>
-                            <?php
-                            }
-                            ?>   
-                        </select>
-                    </td>
-                </tr>
                 
                 <tr>
                     <td>
                         <label>Tình trạng sản phẩm</label>
                     </td>
                     <td>
-                        <select id="select" name="SP_TINHTRANG">
+                        <select id="select" name="MA_TINHTRANG">
                             <option>Chọn tình trạng</option>
                             <?php
-                            if($result_product['SP_TINHTRANG']==0){
+                            if($result_product['MA_TINHTRANG']==0){
                             ?>
                                 <option selected value="0">Còn hàng</option>
                                 <option value="1">Hết hàng</option>
