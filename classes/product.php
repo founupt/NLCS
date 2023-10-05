@@ -15,34 +15,37 @@ class product
         $this -> fm= new Format();
     }
     public function insert_product($data,$files){
-        $SP_TEN       = mysqli_real_escape_string($this->db->link, $data['SP_TEN']);
-        $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
-        $loai_sp      = mysqli_real_escape_string($this->db->link, $data['loai_sp']);
-        $SP_MOTA      = mysqli_real_escape_string($this->db->link, $data['SP_MOTA']);
-        $SP_GIA       = mysqli_real_escape_string($this->db->link, $data['SP_GIA']);
-        $SP_MAU       = mysqli_real_escape_string($this->db->link, $data['SP_MAU']);
-        $SP_TRANGTHAI = mysqli_real_escape_string($this->db->link, $data['SP_TRANGTHAI']);
-        $SP_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['SP_TINHTRANG']);
+        $MA_TEN       = mysqli_real_escape_string($this->db->link, $data['MA_TEN']);
+        $MA_HINHANH      = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
+        $MA_GIA       = mysqli_real_escape_string($this->db->link, $data['MA_GIA']);
+        $MA_MOTA = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
+        $MA_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['MA_TINHTRANG']);
+        
+        // $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
+        // $loai_sp      = mysqli_real_escape_string($this->db->link, $data['loai_sp']);
+        
+        // $SP_MAU       = mysqli_real_escape_string($this->db->link, $data['SP_MAU']);
+        // $SP_TRANGTHAI = mysqli_real_escape_string($this->db->link, $data['SP_TRANGTHAI']);
+        
 
         //Kiểm tra và lấy hình ảnh cho vào thư mục uploads
         $permited = array('jpg', 'jpeg', 'png', 'gif');
-        $file_name = $_FILES['SP_HINHANH']['name'];  
-        $file_size = $_FILES['SP_HINHANH']['size'];  
-        $file_temp = $_FILES['SP_HINHANH']['tmp_name'];
+        $file_name = $_FILES['MA_HINHANH']['name'];  
+        $file_size = $_FILES['MA_HINHANH']['size'];  
+        $file_temp = $_FILES['MA_HINHANH']['tmp_name'];
         
         $div = explode('.',$file_name);
         $file_ext = strtolower(end($div));
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
         $uploaded_image = "uploads/".$unique_image;
 
-        if($SP_TEN == "" || $danhmuc == "" || $loai_sp == "" || $SP_MOTA == "" || $SP_GIA == "" || $SP_MAU == ""
-        || $SP_TRANGTHAI == "" || $SP_TINHTRANG == "" || $file_name == ""){
+        if($MA_TEN == "" || $MA_GIA == "" || $MA_HINHANH == "" || $MA_TINHTRANG =="" || $MA_MOTA == ""){
             $alert = "<span class='error'> Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
             move_uploaded_file($file_temp,$uploaded_image);
-            $query = "INSERT INTO sanpham(SP_TEN, DMSP_MA, LSP_MA, SP_MOTA, SP_GIA, SP_MAU, SP_TRANGTHAI, SP_TINHTRANG, SP_HINHANH) 
-            VALUES ('$SP_TEN','$danhmuc','$loai_sp','$SP_MOTA','$SP_GIA','$SP_MAU','$SP_TRANGTHAI','$SP_TINHTRANG','$unique_image')";
+            $query = "INSERT INTO monan(MA_TEN, MA_GIA, MA_HINHANH, MA_MOTA, MA_TINHTRANG)
+            VALUES ('$MA_TEN','$MA_GIA','$MA_HINHANH','$unique_image')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm sản phẩm thành công!</span>";
@@ -56,43 +59,39 @@ class product
 
     }
     public function show_product (){
-        $query = "SELECT sanpham.*, danhmuc.DMSP_TEN, loai_sp.LSP_TEN
-        FROM sanpham INNER JOIN danhmuc ON sanpham.DMSP_MA = danhmuc.DMSP_MA
-        INNER JOIN loai_sp ON sanpham.LSP_MA = loai_sp.LSP_MA 
-        order by sanpham.SP_MA DESC";
+        $query = "SELECT * from monan";
         $result = $this->db->select($query);
         return $result;
     }
 
     public function update_product($data,$files,$id){
 
-        $SP_TEN       = mysqli_real_escape_string($this->db->link, $data['SP_TEN']);
-        $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
-        $loai_sp      = mysqli_real_escape_string($this->db->link, $data['loai_sp']);
-        $SP_MOTA      = mysqli_real_escape_string($this->db->link, $data['SP_MOTA']);
-        $SP_GIA       = mysqli_real_escape_string($this->db->link, $data['SP_GIA']);
-        $SP_MAU       = mysqli_real_escape_string($this->db->link, $data['SP_MAU']);
-        $SP_TRANGTHAI = mysqli_real_escape_string($this->db->link, $data['SP_TRANGTHAI']);
-        $SP_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['SP_TINHTRANG']);
+        $MA_TEN       = mysqli_real_escape_string($this->db->link, $data['MA_TEN']);
+        // $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
+        // $loai_sp      = mysqli_real_escape_string($this->db->link, $data['loai_sp']);
+        // $SP_MOTA      = mysqli_real_escape_string($this->db->link, $data['SP_MOTA']);
+        $MA_GIA       = mysqli_real_escape_string($this->db->link, $data['MA_GIA']);
+        $SP_HINHANH       = mysqli_real_escape_string($this->db->link, $data['MA_HINHANH']);
+        // $SP_TRANGTHAI = mysqli_real_escape_string($this->db->link, $data['SP_TRANGTHAI']);
+        // $SP_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['SP_TINHTRANG']);
         
         //Kiểm tra và lấy hình ảnh cho vào thư mục uploads
         $permited = array('jpg', 'jpeg', 'png', 'gif');
-        $file_name = $_FILES['SP_HINHANH']['name'];  
-        $file_size = $_FILES['SP_HINHANH']['size'];  
-        $file_temp = $_FILES['SP_HINHANH']['tmp_name'];
+        $file_name = $_FILES['MA_HINHANH']['name'];  
+        $file_size = $_FILES['MA_HINHANH']['size'];  
+        $file_temp = $_FILES['MA_HINHANH']['tmp_name'];
         
         $div = explode('.',$file_name);
         $file_ext = strtolower(end($div));
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
         $uploaded_image = "uploads/".$unique_image;
 
-        if($SP_TEN == "" || $danhmuc == "" || $loai_sp == "" || $SP_MOTA == "" || $SP_GIA == "" || $SP_MAU == ""
-        || $SP_TRANGTHAI == "" || $SP_TINHTRANG == ""){
+        if($MA_TEN == "" || $MA_GIA == "" ){
             $alert = "<span class='error'> Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
             if(!empty($file_name)){
-                //Chọn ảnh để up
+                //Chọn ảnh để up || $MA_HINHANH == ""
                 if($file_size > 204800){
                     $alert = "<span class='error'> Kích thước ảnh quá lớn!!! Bạn chỉ được upload ảnh dưới 20GB</span>";
                     return $alert;
@@ -101,16 +100,15 @@ class product
                     $alert = "<span class='error'> Bạn chỉ được upload hình thuộc định dạng: - ".implode(',',$permited)."</span>";
                     return $alert;
                 }
-                $query = "UPDATE sanpham SET 
-                SP_TEN = '$SP_TEN', DMSP_MA = '$danhmuc', LSP_MA = '$loai_sp', SP_MOTA = '$SP_MOTA', SP_GIA = '$SP_GIA', 
-                SP_MAU = '$SP_MAU', SP_TRANGTHAI = '$SP_TRANGTHAI', SP_TINHTRANG = '$SP_TINHTRANG', SP_HINHANH = '$unique_image'
-                WHERE SP_MA = '$id'";
+                $query = "UPDATE monan SET 
+                MA_TEN = '$MA_TEN', MA_GIA = '$MA_GIA', 
+                MA_HINHANH = '$unique_image'
+                WHERE MA_MA = '$id'";
             }else{
                 //Không chọn ảnh
-                $query = "UPDATE sanpham SET 
-                SP_TEN = '$SP_TEN', DMSP_MA = '$danhmuc', LSP_MA = '$loai_sp', SP_MOTA = '$SP_MOTA', SP_GIA = '$SP_GIA', 
-                SP_MAU = '$SP_MAU', SP_TRANGTHAI = '$SP_TRANGTHAI', SP_TINHTRANG = '$SP_TINHTRANG'
-                WHERE SP_MA = '$id'";
+                $query = "UPDATE monan SET 
+                MA_TEN = '$MA_TEN', MA_GIA = '$MA_GIA', 
+                WHERE MA_MA = '$id'";
             }
             $result = $this->db->update($query);
             if($result){
@@ -124,7 +122,7 @@ class product
         }
     }
     public function delete_product($id) {
-        $query = "DELETE FROM sanpham WHERE SP_MA = '$id'";
+        $query = "DELETE FROM monan WHERE MA_MA = '$id'";
         $result = $this->db->delete($query);
         if($result){
             $alert = "<span class='success'> Xóa sản phẩm thành công!</span>"; 
@@ -135,28 +133,26 @@ class product
         }   
     }
     public function getproductbyId($id){
-        $query = "SELECT * FROM sanpham WHERE SP_MA = '$id'";
+        $query = "SELECT * FROM monan WHERE MA_MA = '$id'";
         $result = $this->db->select($query);
         return $result;
     }
 
     //end back-end
     public function getproduct_feathered(){
-        $query = "SELECT * FROM sanpham WHERE SP_TRANGTHAI = '0'";
+        $query = "SELECT * FROM monan WHERE MA_TRANGTHAI = '0'";
         $result = $this->db->select($query);
         return $result;
     }
 
     public function getproduct_new(){
-        $query = "SELECT * FROM sanpham ORDER BY SP_MA DESC LIMIT 4";
+        $query = "SELECT * FROM monan ORDER BY MA_MA DESC LIMIT 4";
         $result = $this->db->select($query);
         return $result;
     }
     public function getproduct_details($id){
-        $query = "SELECT sanpham.*, danhmuc.DMSP_TEN, loai_sp.LSP_TEN
-        FROM sanpham INNER JOIN danhmuc ON sanpham.DMSP_MA = danhmuc.DMSP_MA
-        INNER JOIN loai_sp ON sanpham.LSP_MA = loai_sp.LSP_MA 
-        WHERE sanpham.SP_MA = '$id'";
+        $query = "SELECT * form monan
+        WHERE monan.MA_MA = '$id'";
         $result = $this->db->select($query);
         return $result;
     }

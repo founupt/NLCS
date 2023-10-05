@@ -2,6 +2,7 @@
 <?php
 $actitive = "contact";
 @include('header.php');
+
 ?>
    <!-- END nav -->
 
@@ -55,6 +56,12 @@ $actitive = "contact";
                 <input id="sdt" type="text" class="form-control" placeholder="Số điện thoại" required>
               </div>
               <div class="form-group">
+                <input id="username" type="text" class="form-control" placeholder="Tên đăng nhập" required>
+              </div>
+              <div class="form-group">
+                <input id="password" type="text" class="form-control" placeholder="Mật khẩu" required>
+              </div>
+              <div class="form-group">
                 <textarea id="address" name=""  cols="30" rows="7" class="form-control" placeholder="Địa chỉ" required></textarea>
               </div>
               <div class="form-group">
@@ -69,6 +76,8 @@ $actitive = "contact";
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
                 document.getElementById('sdt').value = '';
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
                 var textarea = document.getElementById("address");
                     textarea.value = "";
                 console.log(document.getElementById('address'));

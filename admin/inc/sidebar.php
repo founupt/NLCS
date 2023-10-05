@@ -14,10 +14,17 @@
                         <li><a href="brandlist.php">Danh sách thương hiệu</a> </li>
                     </ul>
                 </li>
-                <li><a class="menuitem">Sản phẩm</a>
+                <li><a class="menuitem">Quản lý món ăn</a>
                     <ul class="submenu">
-                        <li><a href="addproduct.php">Thêm sản phẩm</a> </li>
-                        <li><a href="productlist.php">Danh sách sản phẩm</a> </li>
+                        <li><a href="addproduct.php">Thêm món ăn</a> </li>
+                        <li><a href="productlist.php">Danh sách món ăn</a> </li>
+                    </ul>
+                </li>
+
+                <li><a class="menuitem">Quản lý bài đăng</a>
+                    <ul class="submenu">
+                        <li><a href="addproduct.php">Thêm bài đăng</a> </li>
+                        <li><a href="productlist.php">Danh sách bài đăng</a> </li>
                     </ul>
                 </li>
                <!-- <li><a class="menuitem">Điều chỉnh trang web</a>

@@ -4,7 +4,7 @@
             <div class="box round first grid">
                 <h2> Thống kê</h2>
                 <div class="block">               
-                  Welcome admin Food Review       
+                 FOXFOOD ADMIN    
                 </div>
             </div>
         </div>

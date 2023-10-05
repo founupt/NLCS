@@ -82,5 +82,11 @@ class cart
         $result = $this->db->select($query);
         return $result;
     }
+    public function del_all_cart(){
+        $GH_MASS = session_id();
+        $query = "DELETE FROM giohang WHERE GH_MASS = '$GH_MASS'";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 ?>

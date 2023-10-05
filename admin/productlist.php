@@ -21,7 +21,7 @@
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Danh sách sản phẩm</h2>
+        <h2>Danh sách món ăn</h2>
         <div class="block">  
 			<?php
 			if(isset($delete_pro)){
@@ -31,16 +31,16 @@
             <table class="data display datatable" id="example">
 			<thead>
 				<tr>
-					<th>Mã sản phẩm</th>
-					<th>Tên sản phẩm</th>
-					<th>Mã danh mục sản phẩm</th>
+					<th>Mã món ăn</th>
+					<th>Tên món ăn</th>
+					<th>Giá món ăn</th>
+					<th>Hình ảnh món ăn</th>
+					<!-- <th>Mã danh mục sản phẩm</th>
 					<th>Mã thương hiệu sản phẩm</th>
-					<th>Mô tả sản phẩm</th>
-					<th>Giá sản phẩm</th>
-					<th>Hình ảnh sản phẩm</th>
-					<th>Màu sản phẩm</th>
-					<th>Trạng thái sản phẩm</th>
-					<th>Tình trạng sản phẩm</th>
+					<th>Mô tả sản phẩm</th> -->
+					<!-- <th>Màu sản phẩm</th> -->
+					<th>Trạng thái món ăn</th>
+					<!-- <th>Tình trạng sản phẩm</th> -->
 					<th>Chỉnh sửa sản phẩm</th>
 				</tr>
 			</thead>
@@ -54,32 +54,22 @@
 			?>
 				<tr class="odd gradeX">
 					<td><?php echo $i?></td>
-					<td><?php echo $result['SP_TEN']?></td>
-					<td><?php echo $result['DMSP_TEN']?></td>
-					<td><?php echo $result['LSP_TEN']?></td>
+					<td><?php echo $result['MA_TEN']?></td>
+					
+					
+					<td><?php echo $result['MA_GIA']?></td>
+					<td><img src="../images/<?php echo $result['MA_HINHANH']?>" width="70px"></td>
+					
+				
 					<td><?php 
-						$fm = new Format();
-						echo $fm -> textShorten($result['SP_MOTA'], 25);
-					?></td>
-					<td><?php echo $result['SP_GIA']?></td>
-					<td><img src="uploads/<?php echo $result['SP_HINHANH']?>" width="70px"></td>
-					<td><?php echo $result['SP_MAU']?></td>
-					<td><?php 
-						if($result['SP_TRANGTHAI'] == 0){
-							echo 'Nổi bật';
-						}else{
-							echo 'Không nổi bật';
-						}
-					?></td>
-					<td><?php 
-						if($result['SP_TINHTRANG'] == 0){
+						if($result['MA_TINHTRANG'] == 0){
 							echo 'Còn hàng';
 						}else{
 							echo 'Hết hàng';
 						}
 					?></td>
-					<td><a href="productedit.php?productid=<?php echo $result['SP_MA'] ?>">Edit</a> || 
-					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?productid=<?php echo $result['SP_MA'] ?>">Delete</a></td>
+					<td><a href="productedit.php?productid=<?php echo $result['MA_MA'] ?>">Edit</a> || 
+					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?productid=<?php echo $result['MA_MA'] ?>">Delete</a></td>
 				</tr>
 			<?php
 				}

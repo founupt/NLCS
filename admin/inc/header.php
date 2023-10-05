@@ -45,11 +45,11 @@ session::checkSession();
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="../images/iconhome.png" alt="Logo" />
+                    <img src="/images/foxIFOOD.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
-					<h1>FOX FOOD</h1>
-					<p>Chào mừng đến với Trang quản trị</p>
+					<h1>FOXFOOD</h1>
+					<p>WELCOME</p>
 				</div>
                 <div class="floatright">
                     <div class="floatleft">

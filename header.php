@@ -1,3 +1,20 @@
+<?php 
+	@include('config/config.php');
+	@include('lib/session.php');
+	Session::init();
+?>
+<?php
+	@include_once('lib/database.php');
+	@include_once('helpers/format.php');
+	
+	spl_autoload_register(function ($class) {
+		include 'classes/' . $class . '.php';
+	});
+	
+	$db = new Database();
+	$fm = new Format();
+	$product = new product();
+?>
 <!DOCTYPE HTML>
 <HTML lang="en">
   <head>

@@ -19,7 +19,7 @@
 
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Thêm sản phẩm</h2>
+        <h2>Thêm món ăn</h2>
         <div class="block">
         <?php 
                 if(isset($insert_product)){
@@ -31,26 +31,26 @@
                
                 <tr>
                     <td>
-                        <label>Tên sản phẩm</label>
+                        <label>Tên món</label>
                     </td>
                     <td>
-                        <input type="text" name = "SP_TEN" placeholder="Nhập tên sản phẩm" class="medium" />
+                        <input type="text" name = "SP_TEN" placeholder="Nhập tên món" class="medium" />
                     </td>
                 </tr>
 				<tr>
                     <td>
-                        <label>Danh mục sản phẩm</label>
+                        <label>Loại món ăn</label>
                     </td>
                     <td>
                         <select id="select" name="danhmuc">
-                            <option>Chọn mã danh mục</option>
+                            <option>Chọn mã loại</option>
                             <?php
                                 $cat = new category();
                                 $catlist = $cat->show_category();
                                 if($catlist){
                                     while($result = $catlist -> fetch_assoc()){
                             ?>
-                            <option value="<?php echo $result['DMSP_MA']?>"><?php echo $result['DMSP_TEN']?></option>
+                            <option value="<?php echo $result['LMA_MA']?>"><?php echo $result['LMA_TEN']?></option>
                             <?php
                                }
                             }
@@ -59,7 +59,7 @@
                     </td>
                 </tr>
 				<tr>
-                    <td>
+                    <!-- <td>
                         <label>Thương hiệu sản phẩm</label>
                     </td>
                     <td>
@@ -78,14 +78,14 @@
                             ?>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
-                        <label>Mô tả sản phẩm</label>
+                        <label>Mô tả món ăn</label>
                     </td>
                     <td>
-                        <textarea name="SP_MOTA" class="tinymce"></textarea>
+                        <textarea name="MA_MOTA" class="tinymce"></textarea>
                     </td>
                 </tr>
 				<tr>
@@ -93,42 +93,42 @@
                         <label>Giá gốc</label>
                     </td>
                     <td>
-                        <input type="text" name="SP_GIA" placeholder="Nhập giá sản phẩm" class="medium" />
+                        <input type="text" name="MA_GIA" placeholder="Nhập giá món" class="medium" />
                     </td>
                 </tr>
             
                 <tr>
                     <td>
-                        <label>Hình ảnh sản phẩm</label>
+                        <label>Hình ảnh món ăn</label>
                     </td>
                     <td>
-                        <input type="file" name="SP_HINHANH"/>
+                        <input type="file" name="MA_HINHANH"/>
                     </td>
                 </tr>
 				
-                <tr>
+                <!-- <tr>
                     <td>
                         <label>Màu sản phẩm</label>
                     </td>
                     <td>
                         <input type="text" name="SP_MAU" placeholder="Nhập màu sản phẩm" class="medium" />
                     </td>
-                </tr>
+                </tr> -->
 
 				<tr>
                     <td>
-                        <label>Trạng thái sản phẩm</label>
+                        <label>Trạng thái món ăn</label>
                     </td>
                     <td>
-                        <select id="select" name="SP_TRANGTHAI">
+                        <select id="select" name="MA_TINHTRANG">
                             <option>Chọn trạng thái</option>
-                            <option value="0">Nổi bật</option>
-                            <option value="1">Không nổi bật</option>
+                            <option value="0">Duyệt </option>
+                            <option value="1">Không duyệt</option>
                         </select>
                     </td>
                 </tr>
                 
-                <tr>
+                <!-- <tr>
                     <td>
                         <label>Tình trạng sản phẩm</label>
                     </td>
@@ -139,7 +139,7 @@
                             <option value="1">Hết hàng</option>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
 
 				<tr>
                     <td></td>
