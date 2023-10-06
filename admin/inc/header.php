@@ -45,7 +45,7 @@ session::checkSession();
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="/images/foxIFOOD.png" alt="Logo" />
+                    <img src="../images/foxIFOOD.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
 					<h1>FOXFOOD</h1>
@@ -53,7 +53,7 @@ session::checkSession();
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
-                        <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
+                        <img src="../images/foxIFOOD.png" style="width: 52px; margin-top:-15px"  alt="Profile Pic" /></div>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <li>Hello <?php echo session::get('AD_ten')?></li>

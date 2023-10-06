@@ -23,8 +23,8 @@
 
                 <li><a class="menuitem">Quản lý bài đăng</a>
                     <ul class="submenu">
-                        <li><a href="addproduct.php">Thêm bài đăng</a> </li>
-                        <li><a href="productlist.php">Danh sách bài đăng</a> </li>
+                        <li><a href="addreview.php">Thêm bài đăng</a> </li>
+                        <li><a href="reviewlist.php">Danh sách bài đăng</a> </li>
                     </ul>
                 </li>
                <!-- <li><a class="menuitem">Điều chỉnh trang web</a>

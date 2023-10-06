@@ -23,7 +23,7 @@ class type
             $alert = "<span class='error'> Danh mục sản phẩm không được trống!!!</span>";
             return $alert;
         }else{
-            $query = "INSERT INTO danhmuc(DMSP_TEN) VALUES ('$LMA_TEN')";
+            $query = "INSERT INTO loaimonan(LMA_TEN) VALUES ('$LMA_TEN')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm danh mục sản phẩm thành công!</span>";

@@ -1,7 +1,7 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php @include('../classes/brand.php');?>
-<?php @include('../classes/category.php');?>
+<?php @include('../classes/type.php');?>
 <?php @include('../classes/product.php');?>
 
 <?php 
@@ -46,7 +46,7 @@
                         <label>Loại món ăn</label>
                     </td>
                     <td>
-                        <select id="select" name="loaimonan">
+                        <select id="select" name="LMA_MA">
                             <option>Chọn mã loại</option>
                             <?php
                                 $cat = new type();
@@ -64,29 +64,6 @@
                         </select>
                     </td>
                 </tr>
-				<!-- <tr>
-                    <td>
-                        <label>Thương hiệu sản phẩm</label>
-                    </td>
-                    <td>
-                        <select id="select" name="loai_sp">
-                            <option>Chọn mã thương hiệu</option>
-                            <?php
-                                $brand = new brand();
-                                $brandlist = $brand->show_brand();
-                                if($brandlist){
-                                    while($result = $brandlist -> fetch_assoc()){
-                            ?>
-                            <option 
-                            <?php if($result['LMA_MA']==$result_product['LMA_MA']) { echo 'selected'; }?>
-                            value="<?php echo $result['LMA_MA']?>"><?php echo $result['LMA_TEN']?></option>
-                            <?php
-                               }
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr> -->
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
@@ -110,7 +87,7 @@
                         <label>Hình ảnh sản phẩm</label>
                     </td>
                     <td>
-                        <img src="uploads/<?php echo $result_product['MA_HINHANH']?>" width="70px"><br>
+                        <img src="../images/ <?php echo $result_product['MA_HINHANH']?>" width="80px"><br>
                         <input type="file" name="MA_HINHANH"/>
                     </td>
                 </tr>
@@ -135,13 +112,13 @@
                             <?php
                             if($result_product['MA_TINHTRANG']==0){
                             ?>
-                                <option selected value="0">Còn hàng</option>
-                                <option value="1">Hết hàng</option>
+                                <option selected value="0">Còn món</option>
+                                <option value="1">Hết món</option>
                             <?php
                             }else{
                                 ?> 
-                                <option value="0">Còn hàng</option>
-                                <option selected value="1">Hết hàng</option>
+                                <option value="0">Còn món</option>
+                                <option selected value="1">Hết món</option>
                             <?php
                             }
                             ?>   

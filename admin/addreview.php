@@ -1,4 +1,4 @@
-﻿<?php include 'inc/header.php';?>
+<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <?php
     @include('../classes/brand.php');
@@ -19,7 +19,7 @@
 
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Thêm món ăn</h2>
+        <h2>Thêm bài viết</h2>
         <div class="block">
         <?php 
                 if(isset($insert_product)){
@@ -31,43 +31,33 @@
                
                 <tr>
                     <td>
-                        <label>Tên món</label>
+                        <label>Tiêu đề</label>
                     </td>
                     <td>
-                        <input type="text" name = "MA_TEN" placeholder="Nhập tên món" class="medium" />
+                        <input type="text" name = "BV_TIEUDE" placeholder="Nhập tiêu đề " class="medium" />
                     </td>
                 </tr>
-				<tr>
+				<!-- <tr>
                     <td>
                         <label>Loại món ăn</label>
                     </td>
                     <td>
                         <select id="select" name="LMA_MA">
                             <option>Chọn mã loại</option>
-                            <?php
-                                $cat = new type();
-                                $catlist = $cat->show_type();
-                                if($catlist){
-                                    while($result = $catlist -> fetch_assoc()){
-                            ?>
-                            <option value="<?php echo $result['LMA_MA']?>"><?php echo $result['LMA_TEN']?></option>
-                            <?php
-                               }
-                            }
-                            ?>
+                            
                         </select>
                     </td>
-                </tr>
+                </tr> -->
 				
 				 <tr>
                     <td style="vertical-align: top; padding-top: 9px;">
-                        <label>Mô tả món ăn</label>
+                        <label>Nội dung bài viết</label>
                     </td>
                     <td>
-                        <textarea name="MA_MOTA" class="tinymce"></textarea>
+                        <textarea name="BV_NOIDUNG" class="tinymce"></textarea>
                     </td>
                 </tr>
-				<tr>
+				<!-- <tr>
                     <td>
                         <label>Giá gốc</label>
                     </td>
@@ -75,13 +65,13 @@
                         <input type="text" name="MA_GIA" placeholder="Nhập giá món" class="medium" />
                     </td>
                 </tr>
-            
+             -->
                 <tr>
                     <td>
                         <label>Hình ảnh món ăn</label>
                     </td>
                     <td>
-                        <input type="file" name="MA_HINHANH"/>
+                        <input type="file" name="BV_HINHANH"/>
                     </td>
                 </tr>
 				
@@ -96,13 +86,13 @@
 
 				<tr>
                     <td>
-                        <label>Trạng thái món ăn</label>
+                        <label>Tình trạng món ăn</label>
                     </td>
                     <td>
                         <select id="select" name="MA_TINHTRANG">
                             <option>Chọn trạng thái</option>
-                            <option value="0">Còn món </option>
-                            <option value="1">Hết món</option>
+                            <option value="0">Upload </option>
+                            <option value="1">Nháp</option>
                         </select>
                     </td>
                 </tr>

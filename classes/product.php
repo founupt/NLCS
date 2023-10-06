@@ -17,7 +17,8 @@ class product
     public function insert_product($data,$files){
         $MA_TEN       = mysqli_real_escape_string($this->db->link, $data['MA_TEN']);
         $MA_GIA       = mysqli_real_escape_string($this->db->link, $data['MA_GIA']);
-        $MA_MOTA = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
+        $LMA_MA      = mysqli_real_escape_string($this->db->link, $data['LMA_MA']);
+        $MA_MOTA      = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
         $MA_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['MA_TINHTRANG']);
         
         // $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
@@ -36,15 +37,15 @@ class product
         $div = explode('.',$file_name);
         $file_ext = strtolower(end($div));
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
-        $uploaded_image = "uploads/".$unique_image;
+        $uploaded_image = "../images/".$unique_image;
 
-        if($MA_TEN == "" || $MA_GIA == "" || $MA_TINHTRANG =="" || $MA_MOTA == ""){
+        if($MA_TEN == "" || $LMA_MA=="" || $MA_GIA == "" || $MA_MOTA == "" || $MA_TINHTRANG =="" ){
             $alert = "<span class='error'> Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
             move_uploaded_file($file_temp,$uploaded_image);
-            $query = "INSERT INTO monan(MA_TEN, MA_GIA, MA_HINHANH, MA_MOTA, MA_TINHTRANG)
-            VALUES ('$MA_TEN','$MA_GIA','$unique_image','$MA_MOTA', '$MA_TINHTRANG')";
+            $query = "INSERT INTO monan(MA_TEN, LMA_MA, MA_GIA, MA_MOTA, MA_TINHTRANG, MA_HINHANH)
+            VALUES ('$MA_TEN','$LMA_MA','$MA_GIA','$MA_MOTA', '$MA_TINHTRANG','$unique_image')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm sản phẩm thành công!</span>";
@@ -66,13 +67,10 @@ class product
     public function update_product($data,$files,$id){
 
         $MA_TEN       = mysqli_real_escape_string($this->db->link, $data['MA_TEN']);
-        // $danhmuc      = mysqli_real_escape_string($this->db->link, $data['danhmuc']);
-        // $loai_sp      = mysqli_real_escape_string($this->db->link, $data['loai_sp']);
-        // $SP_MOTA      = mysqli_real_escape_string($this->db->link, $data['SP_MOTA']);
         $MA_GIA       = mysqli_real_escape_string($this->db->link, $data['MA_GIA']);
-        $SP_HINHANH       = mysqli_real_escape_string($this->db->link, $data['MA_HINHANH']);
-        // $SP_TRANGTHAI = mysqli_real_escape_string($this->db->link, $data['SP_TRANGTHAI']);
-        // $SP_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['SP_TINHTRANG']);
+        $LMA_MA       = mysqli_real_escape_string($this->db->link, $data['LMA_MA']);
+        $MA_MOTA      = mysqli_real_escape_string($this->db->link, $data['MA_MOTA']);
+        $MA_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['MA_TINHTRANG']);
         
         //Kiểm tra và lấy hình ảnh cho vào thư mục uploads
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -83,16 +81,16 @@ class product
         $div = explode('.',$file_name);
         $file_ext = strtolower(end($div));
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
-        $uploaded_image = "uploads/".$unique_image;
+        $uploaded_image = "../images/".$unique_image;
 
-        if($MA_TEN == "" || $MA_GIA == "" ){
+        if($MA_TEN == "" || $MA_GIA == "" || $LMA_MA=="" || $MA_MOTA == "" || $MA_TINHTRANG =="" ){
             $alert = "<span class='error'> Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
             if(!empty($file_name)){
                 //Chọn ảnh để up || $MA_HINHANH == ""
-                if($file_size > 204800){
-                    $alert = "<span class='error'> Kích thước ảnh quá lớn!!! Bạn chỉ được upload ảnh dưới 20GB</span>";
+                if($file_size > 404800){
+                    $alert = "<span class='error'> Kích thước ảnh quá lớn!!! Bạn chỉ được upload ảnh dưới 40GB</span>";
                     return $alert;
                 }elseif(in_array($file_ext, $permited) == false)
                 {
@@ -100,13 +98,19 @@ class product
                     return $alert;
                 }
                 $query = "UPDATE monan SET 
-                MA_TEN = '$MA_TEN', MA_GIA = '$MA_GIA', 
+                MA_TEN = '$MA_TEN', 
+                MA_GIA = '$MA_GIA',
+                LMA_MA = '$LMA_MA',
+                MA_TINHTRANG = '$MA_TINHTRANG', 
                 MA_HINHANH = '$unique_image'
                 WHERE MA_MA = '$id'";
             }else{
                 //Không chọn ảnh
                 $query = "UPDATE monan SET 
-                MA_TEN = '$MA_TEN', MA_GIA = '$MA_GIA', 
+                MA_TEN = '$MA_TEN',
+                MA_GIA = '$MA_GIA',
+                LMA_MA = '$LMA_MA',
+                MA_TINHTRANG = '$MA_TINHTRANG' 
                 WHERE MA_MA = '$id'";
             }
             $result = $this->db->update($query);
@@ -155,5 +159,6 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
+
 }
 ?>
