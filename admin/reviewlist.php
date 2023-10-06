@@ -7,16 +7,16 @@
     @include('../classes/type.php');
 ?>
 <?php
-    @include('../classes/product.php');
+    @include('../classes/review.php');
 ?>
 <?php
     @include_once('../helpers/format.php');
 ?>
 <?php
-	$pd = new product();
+	$pd = new review();
 	if (isset($_GET['productid'])) {
         $id = $_GET['productid'];
-		$delete_pro = $pd -> delete_product($id);
+		$delete_pro = $pd -> delete_review($id);
     }
 ?>
 <div class="grid_10">
@@ -45,7 +45,7 @@
 			</thead>
 			<tbody>
 			<?php 
-				$pdlist = $pd -> show_product();
+				$pdlist = $pd -> show_review();
 				if($pdlist){
 					$i = 0;
 					while($result = $pdlist ->fetch_assoc()){
@@ -54,7 +54,7 @@
 				<tr class="odd gradeX">
 					<td><?php echo $i?></td>
 					<td><?php echo $result['BV_TIEUDE']?></td>
-					<td><?php echo $result['BV_MOTA']?></td>
+					<!-- <td><?php echo $result['BV_MOTA']?></td> -->
                     <td><?php echo $result['BV_NOIDUNG']?></td>
 					<td><img src="../images/<?php echo $result['BV_HINHANH']?>" width="80px"></td>
 					<td><?php 
@@ -65,7 +65,7 @@
 						}
 					?></td>
 					<td><a href="productedit.php?productid=<?php echo $result['BV_MA'] ?>">Edit</a> || 
-					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?productid=<?php echo $result['MA_MA'] ?>">Delete</a></td>
+					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?productid=<?php echo $result['BV_MA'] ?>">Delete</a></td>
 				</tr>
 			<?php
 				}

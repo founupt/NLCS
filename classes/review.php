@@ -124,7 +124,7 @@ class review {
     }
 
 
-    public function getreivewbyId($id){
+    public function getreviewbyId($id){
         $query = "SELECT * FROM baiviet WHERE BV_MA = '$id'";
         $result = $this->db->select($query);
         return $result;
