@@ -27,7 +27,7 @@ class adminlogin
             $alert = "Tài khoản và mật khẩu không được trống!!!";
             return $alert;
         }else{
-            $query = "SELECT * FROM admin WHERE AD_username = '$AD_username' AND AD_password = '$AD_password'LIMIT 1";
+            $query = "SELECT * FROM admin WHERE AD_username = '$AD_username' AND AD_password = '$AD_password' LIMIT 1";
             $result = $this->db->select($query);
 
             if($result != false){
@@ -38,7 +38,7 @@ class adminlogin
                 session::set('AD_ten',$value['AD_ten']);
                 header('location:index.php');
             }else{
-                $alert = "Tài khoản và mật khẩu không được trống!!!";
+                $alert = "Tài khoản hoặc mật khẩu sai!!!";
                 return $alert;
             }
         }
