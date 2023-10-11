@@ -29,7 +29,6 @@ class adminlogin
         }else{
             $query = "SELECT * FROM admin WHERE AD_username = '$AD_username' AND AD_password = '$AD_password' LIMIT 1";
             $result = $this->db->select($query);
-
             if($result != false){
                 $value = $result->fetch_assoc();
                 session::set('adminlogin', true);

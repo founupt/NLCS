@@ -46,5 +46,25 @@ class session{
   session_destroy();
   header("Location:login.php");
  }
+ public static function check_CTV_Session(){
+   self::init();
+   if (self::get("CTVlogin")== false) {
+    self::destroy();
+    header("Location:login.php");
+   }
 }
+
+public static function check_CTV_Login(){
+   self::init();
+   if (self::get("CTVlogin") == true) {
+    header("Location:index.php");
+   }
+}
+
+public static function destroy_CTV(){
+ session_destroy();
+ header("Location:login.php");
+}
+}
+
 ?>
