@@ -146,13 +146,13 @@ $actitive = "index";
     	<div class="container">
     		<div class="row">
 			<?php
-					$product_new = $product -> getproduct_new();
+					$product_new = $product -> getproduct_limit();
 						if($product_new){
 						while($result_new = $product_new->fetch_assoc()){								
 					?>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/<?php echo $result_new['MA_HINHANH']?>" alt="Colorlib Template">
+    					<a href="#" class="img-prod"><img class="img-fluid" src="./images/<?php echo $result_new['MA_HINHANH']?>" alt="Colorlib Template">
     						<span class="status">30%</span>
     						<div class="overlay"></div>
     					</a>
@@ -160,7 +160,7 @@ $actitive = "index";
     						<h3><a href="#"><?php echo $result_new['MA_TEN']; ?></a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc"><?php echo $result_new['MA_GIA']; ?></span><span class="price-sale">$23.000vnd/Phần</span></p>
+		    						<p class="price"><span class="price-sale"><?php echo $result_new['MA_GIA']; ?></span></p>
 		    					</div>
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">

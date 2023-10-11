@@ -142,20 +142,20 @@ class product
     }
 
     //end back-end
-    public function getproduct_feathered(){
-        $query = "SELECT * FROM monan WHERE MA_TRANGTHAI = '0'";
+    public function getproduct_limit(){
+        $query = "SELECT * FROM monan ORDER BY MA_MA DESC LIMIT 4";
         $result = $this->db->select($query);
         return $result;
     }
 
     public function getproduct_new(){
-        $query = "SELECT * FROM monan ORDER BY MA_MA DESC LIMIT 4";
+        $query = "SELECT * FROM monan ORDER BY MA_MA DESC";
         $result = $this->db->select($query);
         return $result;
     }
     public function getproduct_details($id){
-        $query = "SELECT * form monan
-        WHERE monan.MA_MA = '$id'";
+        $query = "SELECT * FROM chitietmonan
+        WHERE chitietmonan.MA_MA = '$id'";
         $result = $this->db->select($query);
         return $result;
     }

@@ -35,8 +35,8 @@ class review {
             return $alert;
         }else{
             move_uploaded_file($file_temp,$uploaded_image);
-            $query = "INSERT INTO baiviet(BV_TIEUDE, BV_NOIDUNG, BV_TINHTRANG, BV_HINHANH)
-            VALUES ('$BV_TIEUDE','$BV_NOIDUNG','$unique_image')";
+            $query = "  INSERT INTO baiviet(BV_TIEUDE, BV_NOIDUNG, BV_TINHTRANG, BV_HINHANH)
+                        VALUES ('$BV_TIEUDE','$BV_NOIDUNG','$BV_TINHTRANG','$unique_image')";
             $result = $this->db->insert($query);
             if($result){
                 $alert = "<span class='success'> Thêm bai viet thành công!</span>";
@@ -57,8 +57,8 @@ class review {
 
     public function update_review($data,$files,$id){
 
-        $BV_TIEUDE       = mysqli_real_escape_string($this->db->link, $data['BV_TIEUDE']);
-        $BV_NOIDUNG       = mysqli_real_escape_string($this->db->link, $data['V_NOIDUNG']);
+        $BV_TIEUDE    = mysqli_real_escape_string($this->db->link, $data['BV_TIEUDE']);
+        $BV_NOIDUNG   = mysqli_real_escape_string($this->db->link, $data['BV_NOIDUNG']);
         $BV_TINHTRANG = mysqli_real_escape_string($this->db->link, $data['BV_TINHTRANG']);
         
         //Kiểm tra và lấy hình ảnh cho vào thư mục uploads
@@ -142,7 +142,7 @@ class review {
         return $result;
     }
     public function getreview_details($id){
-        $query = "SELECT * form baiviet
+        $query = "SELECT * FROM baiviet
         WHERE baiviet.BV_MA = '$id'";
         $result = $this->db->select($query);
         return $result;

@@ -5,10 +5,10 @@
 
 <?php 
     $pd = new review();
-    if (!isset($_GET['productid']) || $_GET['productid'] == NULL) {
+    if (!isset($_GET['reviewid']) || $_GET['reviewid'] == NULL) {
         echo "<script>window.location = 'reviewlist.php'</script>";
     } else {
-        $id = $_GET['productid'];
+        $id = $_GET['reviewid'];
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         $update_review = $pd->update_review($_POST,$_FILES,$id);

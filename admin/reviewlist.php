@@ -14,8 +14,8 @@
 ?>
 <?php
 	$pd = new review();
-	if (isset($_GET['productid'])) {
-        $id = $_GET['productid'];
+	if (isset($_GET['reviewid'])) {
+        $id = $_GET['reviewid'];
 		$delete_pro = $pd -> delete_review($id);
     }
 ?>
@@ -64,8 +64,8 @@
 							echo 'Không duyệt';
 						}
 					?></td>
-					<td><a href="productedit.php?productid=<?php echo $result['BV_MA'] ?>">Edit</a> || 
-					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?productid=<?php echo $result['BV_MA'] ?>">Delete</a></td>
+					<td><a href="reviewedit.php?reviewid=<?php echo $result['BV_MA'] ?>">Edit</a> || 
+					<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?reviewid=<?php echo $result['BV_MA'] ?>">Delete</a></td>
 				</tr>
 			<?php
 				}
