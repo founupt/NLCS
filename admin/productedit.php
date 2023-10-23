@@ -32,7 +32,7 @@
         ?>        
          <form action=" " method="post" enctype="multipart/form-data">
             <table class="form">
-               
+         
                 <tr>
                     <td>
                         <label>Tên sản phẩm</label>
