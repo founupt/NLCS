@@ -2,7 +2,12 @@
 /**
 *Session Class
 **/
-class session{
+
+/**
+*Session Class
+**/
+
+class Session{
  public static function init(){
   if (version_compare(phpversion(), '5.4.0', '<')) {
         if (session_id() == '') {
@@ -44,7 +49,7 @@ class session{
 
  public static function destroy(){
   session_destroy();
-  header("Location:login.php");
+  header("Location:index.php");
  }
  public static function check_CTV_Session(){
    self::init();
@@ -61,10 +66,22 @@ public static function check_CTV_Login(){
    }
 }
 
-public static function destroy_CTV(){
- session_destroy();
- header("Location:login.php");
+public static function check_Customer_Session(){
+   self::init();
+   if (self::get("customer_login") == false) {
+    self::destroy();
+    header("Location:/../food/khachhang/login.php");
+   }
 }
+
+public static function check_Customer_Login(){
+   self::init();
+   if (self::get("customer_login") == true) {
+    header("Location:../index.php");
+   }
+}
+
+
 }
 
 ?>

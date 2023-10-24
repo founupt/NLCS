@@ -1,4 +1,7 @@
+<?php 
+    @include('../classes/customers.php');
 
+?>
 <head>
     <title>ĐĂNG NHẬP</title>
 
@@ -12,32 +15,12 @@
 <body>
     <!--header start here-->
     <?php
-  require_once("../connect.php");
+    $class = new customers();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $user = $_POST["user"];
-        $pass = $_POST["pass"];
-    
-        if (checkLogin($conn, $user, $pass)) {
-            $_SESSION["user"] = $user;
-            header('Location: ../index.php');
-        } else {
-            echo "Sai username/pass";
-        }
-    }
-    function checkLogin($conn, $user, $pass) {
-        $sql = "SELECT kh_password FROM khachhang WHERE kh_username = '".$user."'";
-        $result = $conn->query($sql);
-    
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if ($row["kh_password"] == $pass) {
-                return true;  // Đăng nhập thành công
-            } else {
-                return false; // Sai mật khẩu
-            }
-        } else {
-            return false; // Sai tài khoản
-        }
+        $KH_USERNAME = $_POST["user"];
+        $KH_PASS = $_POST["pass"];
+        
+        $login_check = $class->login_customers ($KH_USERNAME, $KH_PASS);
     }
     ?>
    
@@ -46,6 +29,11 @@
         <div class="header-main">
             <br><br>
             <h3>ĐĂNG NHẬP</h3><br><br>
+            <span><?php
+            if(isset($login_check)){
+                echo $login_check;
+            }
+            ?></span>
             <div class="header-bottom">
                 <div class="header-right w3agile">
                     <div class="header-left-bottom agileinfo">

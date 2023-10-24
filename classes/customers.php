@@ -1,5 +1,7 @@
 <?php
 $filepath = realpath(dirname(__FILE__));
+@include_once($filepath.'/../lib/session.php');
+session::init();
 @include_once($filepath.'/../lib/database.php');
 @include_once($filepath.'/../helpers/format.php');
 ?>
@@ -15,13 +17,13 @@ class customers
         $this -> fm= new Format();
     }
     public function insert_customers($data){
-        $KH_TEN = mysqli_real_escape_string($this->db->link, $data['KH_TEN']);
+        $KH_USERNAME = mysqli_real_escape_string($this->db->link, $data['KH_USERNAME']);
         $KH_SDT = mysqli_real_escape_string($this->db->link, $data['KH_SDT']);
         $KH_EMAIL = mysqli_real_escape_string($this->db->link, $data['KH_EMAIL']);
         $KH_DIACHI = mysqli_real_escape_string($this->db->link, $data['KH_DIACHI']);
-        $KH_PASSWORD = mysqli_real_escape_string($this->db->link, md5($data['KH_PASSWORD']));
+        $KH_PASS = mysqli_real_escape_string($this->db->link, md5($data['KH_PASS']));
 
-        if($KH_TEN == "" || $KH_SDT == "" || $KH_EMAIL == "" || $KH_DIACHI == "" || $KH_PASSWORD == ""){
+        if($KH_USERNAME == "" || $KH_SDT == "" || $KH_EMAIL == "" || $KH_DIACHI == "" || $KH_PASS == ""){
             $alert = "<span class='error'>Các thành phần này không được trống!!!</span>";
             return $alert;
         }else{
@@ -31,8 +33,8 @@ class customers
                 $alert = "<span class='error'>Email đã tồn tại!!!</span>";
                 return $alert;
             }else{
-                $query = "INSERT INTO khachhang(KH_TEN, KH_SDT, KH_EMAIL, KH_DIACHI, KH_PASSWORD) 
-                VALUES ('$KH_TEN','$KH_SDT','$KH_EMAIL','$KH_DIACHI','$KH_PASSWORD')";
+                $query = "INSERT INTO khachhang(KH_USERNAME, KH_SDT, KH_EMAIL, KH_DIACHI, KH_PASS) 
+                VALUES ('$KH_USERNAME','$KH_SDT','$KH_EMAIL','$KH_DIACHI','$KH_PASS')";
                 $result = $this->db->insert($query);
                 if($result){
                     $alert = "<span class='success'> Đăng ký thành công!</span>";
@@ -44,22 +46,26 @@ class customers
             }
         }
     }
-    public function login_customers($data){
-        $KH_TEN = mysqli_real_escape_string($this->db->link, $data['KH_TEN']);
-        $KH_PASSWORD = mysqli_real_escape_string($this->db->link, md5($data['KH_PASSWORD']));
+    public function login_customers($KH_USERNAME,$KH_PASS){
+        $KH_USERNAME = $this -> fm -> validation($KH_USERNAME);
+        $KH_PASS = $this -> fm ->  validation($KH_PASS);
 
-        if($KH_TEN == "" || $KH_PASSWORD == ""){
+        $KH_USERNAME = mysqli_real_escape_string($this->db->link, $KH_USERNAME);
+        $KH_PASS = mysqli_real_escape_string($this->db->link, $KH_PASS);
+
+        if($KH_USERNAME == "" || $KH_PASS == ""){
             $alert = "<span class='error'>Tên hoặc mật khẩu không được trống!!!</span>";
             return $alert;
         }else{
-            $check_login = "SELECT * FROM khachhang WHERE KH_TEN = '$KH_TEN' AND KH_PASSWORD = '$KH_PASSWORD'";
+            $check_login = "SELECT * FROM khachhang WHERE KH_USERNAME = '$KH_USERNAME' AND KH_PASS = '$KH_PASS'";
             $result_check = $this->db->select($check_login);
-            if($result_check){
+            if($result_check !=false){
                 $value = $result_check ->fetch_assoc();
-                Session::set('customer_login',true);
-                Session::set('customer_id',$value['KH_MA']);
-                Session::set('customer_ten',$value['KH_TEN']);
-                header('Location:checkout.php');
+                session::set("customer_login",true);
+                session::set('KH_MA',$value['KH_MA']);
+                session::set('KH_USERNAME',$value['KH_USERNAME']);
+                session::set('KH_TEN',$value['KH_TEN']);
+                session::check_Customer_Login();
             }else{
                 $alert = "<span class='error'>Tên hoặc mật khẩu không đúng!!!</span>";
             return $alert;

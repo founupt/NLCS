@@ -3,13 +3,7 @@ $actitive = "index";
 @include('header.php');
 ?>
 <?php 
-$class= new adminlogin();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$AD_username = $_POST['AD_username'];
-	$AD_password = $_POST['AD_password'];
 
-	$login_check = $class->login_admin($AD_username,$AD_password);
-  }
 ?>
     <section id="home-section" class="hero">
 		  <div class="home-slider owl-carousel">

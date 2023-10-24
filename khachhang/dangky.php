@@ -51,8 +51,7 @@
 						)";
 					    // thực thi câu $sql với biến conn lấy từ file connection.php
                         if (mysqli_query($conn, $sql)) {
-							echo '<script>alert("chúc mừng bạn đăng ký thành công ");
-                            alert("Đăng ký thành công! Vui lòng đăng nhập lại!");
+							echo '<script>alert("Đăng ký thành công! Vui lòng đăng nhập lại!");
                             location="login.php";</script>'; 
 							
                             exit();

@@ -56,7 +56,7 @@ session::check_CTV_Session();
                         <img src="../images/foxIFOOD.png" style="width: 52px; margin-top:-15px"  alt="Profile Pic" /></div>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>Hello <?php echo session::get('AD_ten')?></li>
+                            <li>Hello <?php echo session::get('CTV_ten')?></li>
                             <?php
                             if(isset($_GET['action'])&& $_GET['action']=='logout'){
                                 session::destroy();

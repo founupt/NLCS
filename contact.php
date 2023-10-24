@@ -4,6 +4,18 @@ $actitive = "contact";
 @include('header.php');
 
 ?>
+<?php
+$servername = "localhost"; // Thay bằng tên máy chủ CSDL của bạn
+$username = "root"; // Thay bằng tên người dùng CSDL của bạn
+$password = ""; // Thay bằng mật khẩu CSDL của bạn
+$database = "food"; // Thay bằng tên CSDL của bạn
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Kết nối đến CSDL thất bại: " . mysqli_connect_error());
+}
+?>
    <!-- END nav -->
    <?php
 		
@@ -17,7 +29,7 @@ $actitive = "contact";
           $KH_DIACHI= $_POST["KH_DIACHI"];
 			    
 
-  			//Kiểm tra điều kiện bắt buộc đối với các field KHông được bỏ trống
+  			//Kiểm tra đi.ều kiện bắt buộc đối với các field KHông được bỏ trống
 			  if ($KH_USERNAME == "" || $KH_PASS == ""||$KH_DIACHI == "" || $KH_TEN == "" || $KH_SDT == ""|| $KH_EMAIL == "" ) {
 				   echo "bạn vui lòng nhập đầy đủ thông tin";
 				//    if ($KH_PASSWORD !== $confirm_password) {
@@ -25,7 +37,7 @@ $actitive = "contact";
 				// }
   			}else{
   					// Kiểm tra tài khoản đã tồn tại chưa
-          $sql = "SELECT KH_PASS FROM khachhang WHERE KH_USERNAME = '".$KH_USERNAME."'";
+          $sql = "SELECT * FROM khachhang WHERE KH_USERNAME = '".$KH_USERNAME."'";
 					$kt=mysqli_query($conn, $sql);
 					if(mysqli_num_rows($kt)  > 0){
 						echo "Tài khoản đã tồn tại";
@@ -48,10 +60,8 @@ $actitive = "contact";
 						)";
 					    // thực thi câu $sql với biến conn lấy từ file connection.php
                         if (mysqli_query($conn, $sql)) {
-							              echo '<script>alert("chúc mừng bạn đăng ký thành công ");
-                            alert("Đăng ký thành công! Vui lòng đăng nhập lại!");
-                            location="login.php";</script>'; 
-							
+							              echo '<script>alert("Đăng ký thành công! Vui lòng đăng nhập lại!");
+                            location="login.php";</script>';
                             exit();
                         } else {
                             echo "Lỗi: " . $sql . "<br>" . mysqli_error($conn);
@@ -100,8 +110,8 @@ $actitive = "contact";
           </div>
         </div> -->
         <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form onsubmit="showMessageBox()" action="#" class="bg-white p-5 contact-form">
+          <div class="col-md-12 order-md-last d-flex">
+            <form onsubmit="showMessageBox()" action="#" class="bg-white p-5 contact-form" method="post">
                     <h1 style=" text-align: center;">ĐĂNG KÍ</h1>
               <div class="form-group">
                 <input id="name" name="KH_TEN" type="text" class="form-control" placeholder="Họ và tên" required>
@@ -123,10 +133,10 @@ $actitive = "contact";
               </div>
               <div class="form-group">
                 <!-- <input type="submit" value="Đăng kí" class="btn btn-primary py-3 px-5"> -->
-                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="btnDatHang">Đăng kí</button>
+                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="dangky">Đăng kí</button>
     				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Thanh toán</a></p> -->
           
-            <script>
+            <!-- <script>
 						    function showMessageBox() {
     						var message = "Đã đăng kí thành công!";
     						alert(message);
@@ -141,7 +151,7 @@ $actitive = "contact";
              
 							}
               
-					    </script>
+					    </script> -->
             
               </div>
             </form>
