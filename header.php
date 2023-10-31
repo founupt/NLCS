@@ -23,7 +23,7 @@
 <HTML lang="en">
   <head>
   <!-- <link rel="icon" href="images/12.png" type="image/x-icon"> -->
-  <link rel="icon" type="" sizes="16x16"  href="images/foxIFOOD.png">
+  <link rel="icon" type="" sizes="16x16"  href="images/foxfood.png">
 
     <title>FOXFOOD</title>
 	

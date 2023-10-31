@@ -24,7 +24,7 @@ class CTVlogin
         $CTV_pass = mysqli_real_escape_string($this->db->link, $CTV_pass);
 
         if(empty($CTV_username)||empty($CTV_pass)){
-            $alert = "Tài khoản và mật khẩu không được trống!!!";
+            $alert = " Vui lòng kiểm tra lại username và password!!!";
             return $alert;
         }else{
             $query = "SELECT * FROM congtacvien WHERE CTV_username = '$CTV_username' AND CTV_pass = '$CTV_pass'";

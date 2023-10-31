@@ -4,11 +4,11 @@
     @include('../classes/category.php');
 ?>
 <?php
-	$cat = new category();
+	$cat = new type();
 
 	if (isset($_GET['delid'])) {
         $id = $_GET['delid'];
-		$delete_cart = $cat -> delete_category($id);
+		$delete_cart = $cat -> delete_type($id);
     }
 ?>
         <div class="grid_10">
@@ -30,7 +30,7 @@
 					</thead>
 					<tbody>
 					<?php
-						$show_category = $cat -> show_category();
+						$show_category = $cat -> show_type();
 							if($show_category){
 								$i = 0;
 								while ($result = $show_category -> fetch_assoc()){
@@ -38,9 +38,9 @@
 					?>
 							<tr class="odd gradeX">
 								<td> <?php echo $i; ?></td>
-								<td><?php echo $result['DMSP_TEN']?></td>
-								<td><a href="catedit.php?catid=<?php echo $result['DMSP_MA'] ?>">Edit</a> || 
-								<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?delid=<?php echo $result['DMSP_MA'] ?>">Delete</a></td>
+								<td><?php echo $result['LMA_TEN']?></td>
+								<td><a href="catedit.php?catid=<?php echo $result['LMA_MA'] ?>">Edit</a> || 
+								<a onclick =  "return confirm ('Bạn có chắc muốn xóa không???')" href="?delid=<?php echo $result['LMA_MA'] ?>">Delete</a></td>
 							</tr>
 					<?php
 						}

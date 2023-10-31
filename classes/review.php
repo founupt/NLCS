@@ -31,7 +31,7 @@ class review {
         $uploaded_image = "../images/".$unique_image;
 
         if($BV_TIEUDE == "" || $BV_NOIDUNG=="" || $BV_TINHTRANG=="" || $BV_HINHANH =""){
-            $alert = "<span class='error'> Vui long nhap day du noi dung!!!</span>";
+            $alert = "<span class='error'> Vui lòng nhập đầy đủ thông tin !!!</span>";
             return $alert;
         }else{
             move_uploaded_file($file_temp,$uploaded_image);
@@ -39,10 +39,10 @@ class review {
                         VALUES ('$BV_TIEUDE','$BV_NOIDUNG','$BV_TINHTRANG','$unique_image')";
             $result = $this->db->insert($query);
             if($result){
-                $alert = "<span class='success'> Thêm bai viet thành công!</span>";
+                $alert = "<span class='success'> Thêm bài viết thành công!</span>";
                 return $alert; 
             }else{
-                $alert = "<span class='error'> Thêm bai viet thất bại!!!</span>";
+                $alert = "<span class='error'> Thêm bài viết thất bại!!!</span>";
                 return $alert; 
             }
            
@@ -72,8 +72,8 @@ class review {
         $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
         $uploaded_image = "../images/".$unique_image;
 
-        if($BV_TIEUDE == "" || $BV_NOIDUNG=="" || $BV_TINHTRANG=="" || $BV_HINHANH ="" ){
-            $alert = "<span class='error'> Vui long nhap day du noi dung!!!</span>";
+        if($BV_TIEUDE == "" || $BV_NOIDUNG=="" || $BV_TINHTRANG=="" || $file_name ="" ){
+            $alert = "<span class='error'> Vui lòng nhập đủ thông tin!!!</span>";
             return $alert;
         }else{
             if(!empty($file_name)){

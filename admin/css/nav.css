@@ -8,7 +8,7 @@ Navigation
 ul.nav,
 ul.nav * { margin:0;padding:0;}
 ul.nav {
-  background: #0F172B repeat-x scroll 0 8px !important;
+  background:honeydew repeat-x scroll 0 8px !important;
   height: 58px;
   max-width: 100%;
   position: relative;
@@ -101,7 +101,7 @@ ul.main li a {
 	height:3.7em;
 	line-height:3.7em;
 	border:0;
-	color:#fff;
+	color:cadetblue;
 
 }
 ul.main li ul li a {
@@ -109,7 +109,7 @@ ul.main li ul li a {
   line-height:3em;
   height:3em;
   text-align:left;
-  color:#fff;
+  color:cadetblue;
   border-top:1px solid #1A3A52;
   background:#103D5F;
 }

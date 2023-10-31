@@ -45,15 +45,15 @@ session::checkSession();
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="../images/foxIFOOD.png" alt="Logo" />
+                    <img src="../images/foxfood.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
 					<h1>FOXFOOD</h1>
-					<p>WELCOME</p>
+					<p>CHÀO MỪNG QUẢN TRỊ VIÊN</p>
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
-                        <img src="../images/foxIFOOD.png" style="width: 52px; margin-top:-15px"  alt="Profile Pic" /></div>
+                        <img src="../images/foxfood.png" style="width: 60px; margin-top:-15px"  alt="Profile Pic" /></div>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <li>Hello <?php echo session::get('AD_ten')?></li>

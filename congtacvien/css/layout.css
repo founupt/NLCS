@@ -4,8 +4,8 @@ Grey Box Method - Layout CSS
 ----------------------------------------------- */
 
 body {
-  background: #fff none repeat scroll 0 0;
-  color: #444;
+  background: honeydew none repeat scroll 0 0;
+  color:cadetblue ;
   font-size: 14px;
   padding: 0;
 }
@@ -14,22 +14,25 @@ body {
 .floatleft{float:left;}
 .logo img {
   margin-top: -15px;
-  width: 52px;
+  width: 60px;
 }
 .middle {
   margin-left: 22px;
   margin-top: -14px;
 }
-.middle h1{color:#fff;margin:0}
+.middle h1{color:cadetblue;margin:0; font-size: 25px; font-family: 'Times New Roman', Times, serif;}
 .middle p {
-  color: #fff;
+  color: cadetblue;
+  font-family: 'Times New Roman', Times, serif;
   margin: 0;
+  font-size: 20px;
   font-weight: bold;
 }
 .floatright{float:right;}
 .fontwhite{color:#fff;}
 .small{font-size:9px;}
-.inline-ul li{display:inline; color:#fff;}
+	
+.inline-ul li{display:inline; color:cadetblue; font-family: 'Times New Roman', Times, serif; font-size: 18px;  }
 .marginleft10{margin-left:10px;}
 .grey{color:#C2C2C2;}
 
@@ -49,7 +52,7 @@ a:hover {
 ----------------------------------------------- */
 .container_12,
 .container_16 {
-	background:#0F172B;
+	background:honeydew ;
 }
 
 
@@ -69,6 +72,7 @@ h1 a {
 /* branding
 ----------------------------------------------- */
 #branding {
+	background: honeydew;
   font-weight: normal;
   margin-bottom: 0;
   padding: 22px 10px 3px;
@@ -77,7 +81,7 @@ h1 a {
 
 .header-repeat{background:url(../img/header-repeat.jpg) repeat-x;}
 
-#branding a{color:#A1EAFF; font-weight:normal;}
+#branding a{color:#a072c7; font-size: 20px; font-family: 'Times New Roman', Times, serif; font-weight:normal;}
 #branding a:hover{color:#fff;}
 
 #branding a:before{content:" | "; color:#fff;}
@@ -101,7 +105,7 @@ h2#page-heading {
 /* boxes
 ----------------------------------------------- */
 .box {
-	background:#fff;
+	background:honeydew;
 	margin-bottom:20px;
 	padding:10px 10px 10px 10px; margin-left:-8px;
 }
@@ -115,8 +119,9 @@ h2#page-heading {
 .box h2 {
 	font-size:1.2em;
 	font-weight:bold;
-	color:#0F172B;
-	background:#E6F0F3;
+	color:cadetblue;
+	background: honeydew;
+
 	margin:-10px -10px 0 -10px;
 	padding:10px 12px;
 	border-bottom:1px solid #B3CBD6;
@@ -164,6 +169,7 @@ h2#page-heading {
 
 .block {
 	padding-top:20px;
+	background: honeydew;
 }
 .copyblock {
   border: 1px solid #e6f0f3;
@@ -187,7 +193,7 @@ div.menu .block {
 /* sidebar menu
 ----------------------------------------------- */
 
-.box.sidemenu{ background-color:#D1DEE4; border-right:1px solid #0F172B; padding:0px; margin:0px; cursor:pointer; }
+.box.sidemenu{ background-color:#D1DEE4; padding:0px; margin:0px; cursor:pointer; }
 .box.sidemenu .block{padding-top:0px; margin-top:0px;}
 
 /* paragraphs, quotes and lists
@@ -290,15 +296,15 @@ ul.section ul.current li a:active {
 	background:#E6F0F3;
 }
 ul.section li a.current {
-	color:#0F172B;
+	color: cadetblue;
 	background:url(../img/sidemenu-repeat-hover.jpg) repeat-x;
 }
 ul.section li a.current:hover {
-	color:#0F172B;
+	color:cadetblue;
 	background:url(../img/sidemenu-repeat-hover.jpg) repeat-x;
 }
 ul.section li a.current:active {
-	color:#0F172B;
+	color:cadetblue;
 	background:url(../img/sidemenu-repeat-hover.jpg) repeat-x;
 }
 ul.section li a.active {
@@ -336,8 +342,9 @@ table.form input, table.form select{
 	border-bottom: 1px solid #eaeaea;
 }
 table.form input[type="submit"] {
-  border: 1px solid #ddd;
-  color: #444;
+  border: 1px solid honeydew;
+  border-radius: 5px;
+  color:cadetblue;
   cursor: pointer;
   font-size: 20px;
   padding: 2px 10px;
@@ -405,7 +412,7 @@ input.error
 	padding: 0;
 	height: 1%;
 	
-	color: #FF0000;
+	color:#074676;
 }
 
 span.success
@@ -423,7 +430,7 @@ label.error
 	padding: 0;
 	height: 1%;
 	display: block;
-	color: #FF0000;
+	color:#074676;
 }
 
 
@@ -878,7 +885,7 @@ td.details {
 	padding: 2px 5px;
 	margin: 0 3px;
 	cursor: pointer;
-	*cursor: hand;
+	cursor: hand;
 }
 
 .paging_full_numbers span.paginate_button {
@@ -908,7 +915,7 @@ td.details {
 	border-width: 1px;
 	border-style: solid;
 	padding: 0 15px 4px;
-	*padding: 0 7px 4px;
+	padding: 0 7px 4px;
 	margin: 0;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.2);
 	-moz-box-shadow: 1px 1px 1px rgba(0,0,0,.25);
@@ -1161,5 +1168,5 @@ table.form select{width:200px;}
 
 .error{ 
 	font-size: 18px;
-	color: red;
+	color: #074676;
 }
