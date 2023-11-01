@@ -20,6 +20,7 @@
         <h2>Sửa review</h2>
         <div class="block">
         <?php 
+        
             if(isset($update_review)){
                 echo $update_review;
             }

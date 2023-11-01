@@ -102,10 +102,10 @@ class review {
             }
             $result = $this->db->update($query);
             if($result){
-                $alert = "<span class='success'> Sửa bai viet thành công!</span>";
+                $alert = "<span class='success'> Sửa bài viết thành công!</span>";
                 return $alert; 
             }else{
-                $alert = "<span class='error'> Sửa bai viet thất bại!!!</span>";
+                $alert = "<span class='error'> Sửa bài viết thất bại!!!</span>";
                 return $alert; 
             }
         }
@@ -115,10 +115,10 @@ class review {
         $query = "DELETE FROM baiviet WHERE BV_MA = '$id'";
         $result = $this->db->delete($query);
         if($result){
-            $alert = "<span class='success'> Xóa sản phẩm thành công!</span>"; 
+            $alert = "<span class='success'> Xóa bài viết thành công!</span>"; 
             return $alert; 
         }else{
-            $alert = "<span class='error'> Xóa sản phẩm thất bại!!!</span>";
+            $alert = "<span class='error'> Xóa bài viết thất bại!!!</span>";
             return $alert; 
         }   
     }

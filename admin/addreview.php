@@ -9,7 +9,7 @@
 <?php
     @include('../classes/review.php');
 ?>
-x`
+
 <?php 
     $pd = new review();
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {

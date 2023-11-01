@@ -4,14 +4,14 @@
 <?php @include('../classes/review.php');?>
 
 <?php 
-    $pd = new review();
+    $rv = new review();
     if (!isset($_GET['reviewid']) || $_GET['reviewid'] == NULL) {
         echo "<script>window.location = 'reviewlist.php'</script>";
     } else {
         $id = $_GET['reviewid'];
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-        $update_review = $pd->update_review($_POST,$_FILES,$id);
+        $update_review = $rv->update_review($_POST,$_FILES,$id);
     }   
 ?>
 
@@ -25,7 +25,7 @@
             }
         ?>
         <?php 
-            $get_review_byid = $pd ->getreviewbyId($id);
+            $get_review_byid = $rv ->getreviewbyId($id);
             if($get_review_byid){
                 while($result_review = $get_review_byid->fetch_assoc()){               
         ?>        
