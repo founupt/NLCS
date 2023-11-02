@@ -10,6 +10,7 @@
 <?php
 	@include_once('lib/database.php');
 	@include_once('helpers/format.php');
+	@include_once('./getfeedback.php');
 	
 	spl_autoload_register(function ($class) {
 		include 'classes/' . $class . '.php';
@@ -18,6 +19,7 @@
 	$db = new Database();
 	$fm = new Format();
 	$product = new product();
+	$feedback = new feedback();
 ?>
 <!DOCTYPE HTML>
 <HTML lang="en">
@@ -92,11 +94,8 @@
 			  <li class="nav-item dropdown">
 				<?php
 					if(session::get("customer_login") == false) {
-						echo '	<a class="nav-link dropdown-toggle" href="congtacvien/login.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Đăng nhập cộng tác viên</a>
-								<div class="dropdown-menu" aria-labelledby="dropdown04">
-									<a class="dropdown-item" href="congtacvien/login.php">Cộng tác viên</a>
-									
-								</div>
+						echo '	<a class="nav-link" href="congtacvien/login.php" >Đăng nhập cộng tác viên</a>
+								
 								<li class="nav-item"><a href="contact.php" class="nav-link">Đăng kí</a></li>';
 					}	
 					else if(session::get("customer_login") == true) {

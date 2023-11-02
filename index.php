@@ -147,11 +147,13 @@ $actitive = "index";
     	</div>
     	<div class="container">
     		<div class="row">
+          <!-- Product -->
 			<?php
 					$product_new = $product -> getproduct_limit();
 						if($product_new){
 						while($result_new = $product_new->fetch_assoc()){								
 					?>
+
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
     					<a href="#" class="img-prod"><img class="img-fluid" src="./images/<?php echo $result_new['MA_HINHANH']?>" alt="Colorlib Template">
@@ -181,103 +183,40 @@ $actitive = "index";
     					</div>
     				</div>	
     			</div>
+
 				<?php
 					}
 				}
 				?>
-    			
-    			
-    			
+        <!-- Feedback -->
+        <?php
+        $feedback_new = $feedback -> getfeedback_new();
+        if($feedback_new) {
+          while($result_feedback = $feedback_new->fetch_assoc()){
+            ?>
+            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="product">
+
+              
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"><?php echo $result_feedback['FB_TEN']; ?></a></h3>
+    					</div>
+              <div>
+                <h5><a href="#"><?php echo $result_feedback['FB_NOIDUNG']; ?></a></h5>
+              </div>
+
+    				</div>	
+            </div>
+            <?php
+					}
+				}
+				?>
+
     		</div>
     	</div>
     </section>
 		
-		
-
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Reviews</span>
-            <h2 class="mb-4">Khánh hàng đánh giá</h2>
-        
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Bạn mình dẫn đi nên mới biết quán này, nhìn chung không gian oke, yên tĩnh và mở nhạc nhẹ, thích hợp để học bài làm việc, mình thấy nhiều bạn vô học bài lắm. Mình thấy khá ngon, vị trà đậm thơm. Giá không mắc không rẻ, cũng hợp lý với chất lượng này.</p>
-                    <p class="name">Ẩn danh </p>
-                    <span class="position">Khách hàng</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Đồ ăn ngon vừa giá tiền , nhân viên nhiệt tình</p>
-                    <p class="name">Ẩn danh</p>
-                    <span class="position">Khách hàng </span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Không gian hơi đơn điệu, không trang trí gì đặc sắc, quán mới còn sơ sài. Mì không nhiều bằng mấy tiệm cũ. Được cái Menu nhiều món hơn, có món lẩu với nướng,....</p>
-                    <p class="name">Ẩn danh</p>
-                    <span class="position">Khách hàng</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Đặt hàng trên FOXFOOD APP lúc 11h24, giao hàng lúc 11h43. Khá nhanh, đồ ăn ngon miệng</p>
-                    <p class="name">Ẩn danh</p>
-                    <span class="position">Khách hàng</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Vì là quán gần nhà nên mình hay ghé lên đây ăn lắm, mình thấy đây là sợi bánh canh gạo chứ không phải bánh canh như bình thường, ăn cũng khá ngon</p>
-                    <p class="name">Ẩn danh</p>
-                    <span class="position">Khách Hàng</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+	
         </div>
       </div>
     </section>

@@ -133,6 +133,7 @@ sup {
   top: -.5em; }
 
 a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #007bff;
   text-decoration: none;
   background-color: transparent; }
@@ -8008,6 +8009,8 @@ body {
     width: 100%; }
 
 a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: smaller;;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
