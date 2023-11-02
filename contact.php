@@ -2,6 +2,7 @@
 <?php
 $actitive = "contact";
 @include('header.php');
+@include('../classes/customers.php');
 
 ?>
 <?php
@@ -19,8 +20,8 @@ if (!$conn) {
    <!-- END nav -->
    <?php
 		
-		if (isset($_POST["dangky"])) {
-  			//lấy thông tin từ các form bằng phương thức POST
+      if (isset($_POST["dangky"])) {
+          //lấy thông tin từ các form bằng phương thức POST
 			    $KH_TEN = $_POST["KH_TEN"];
 			    $KH_SDT = $_POST["KH_SDT"];
 			    $KH_EMAIL = $_POST["KH_EMAIL"];
@@ -61,17 +62,23 @@ if (!$conn) {
 					    // thực thi câu $sql với biến conn lấy từ file connection.php
                         if (mysqli_query($conn, $sql)) {
 							              echo '<script>alert("Đăng ký thành công! Vui lòng đăng nhập lại!");
-                            location="login.php";</script>';
+                            location="contact.php";</script>';
                             exit();
                         } else {
                             echo "Lỗi: " . $sql . "<br>" . mysqli_error($conn);
                         }
-                        
 					}
 									    
 					
 			  }
 	}
+  $class = new customers();
+    if (isset($_POST["dangnhap"])) {
+        $KH_USERNAME = $_POST["KH_USERNAME"];
+        $KH_PASS = $_POST["KH_PASS"];
+        
+        $login_check = $class->login_customers ($KH_USERNAME, $KH_PASS);
+    }
 	?>
     <div class="hero-wrap hero-bread" style="background-image: url('images/br.jpg');">
       <div class="container">
@@ -86,31 +93,10 @@ if (!$conn) {
    
     <section class="ftco-section contact-section bg-light">
       <div class="container">
-      	<!-- <div class="row d-flex mb-5 contact-info">
-          <div class="w-100"></div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="info bg-white p-4">
-	            <p><span>Website</span> <a href="#">yoursite.com</a></p>
-	          </div>
-          </div>
-        </div> -->
+        
+   <!-- dangki -->
         <div class="row block-9">
-          <div class="col-md-12 order-md-last d-flex">
+          <div class="col-md-6 order-md-last d-flex">
             <form onsubmit="showMessageBox()" action="#" class="bg-white p-5 contact-form" method="post">
                     <h1 style=" text-align: center;">ĐĂNG KÍ</h1>
               <div class="form-group">
@@ -132,10 +118,8 @@ if (!$conn) {
                 <textarea id="address" name="KH_DIACHI"  cols="30" rows="7" class="form-control" placeholder="Địa chỉ" required></textarea>
               </div>
               <div class="form-group">
-                <!-- <input type="submit" value="Đăng kí" class="btn btn-primary py-3 px-5"> -->
-                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="dangky">Đăng kí</button>
-    				<!-- <p><a href="checkout.php" class="btn btn-primary py-3 px-4">Thanh toán</a></p> -->
-          
+              
+                <button onsubmit="showMessageBox()" class="btn btn-primary py-3 px-5" type="submit" name="dangky">Đăng kí</button>         
             <!-- <script>
 						    function showMessageBox() {
     						var message = "Đã đăng kí thành công!";
@@ -156,16 +140,43 @@ if (!$conn) {
               </div>
             </form>
           </div>
-
+          <!-- đangnhap -->
+          <div class="col-md-6 order-md-last d-flex">
+          <form action="#" class="bg-white p-5 contact-form" method="post">
           
+          <h1 style=" text-align: center;">ĐĂNG NHẬP</h1>
+              <span>
+                <?php
+                if(isset($login_check)){
+                  echo $login_check;
+                }
+                ?>
+              </span>
+              <div class="form-group">
+              
+                <p>Username:</p>
+                <span><input type="text" class="form-control" id="KH_USERNAME" name="KH_USERNAME" placeholder="Tên đăng nhập" /></span>
+              </div>
+              <div class="form-group">
+              
+              </div>
+              <div class="form-group">
+              <p>Password:</p>
+              <input type="password" class="form-control" id="KH_PASS" name="KH_PASS" placeholder="Mật khẩu" />
+              </div>
+              
+              <div class="col-md-12">      
+                  <button type="submit"  class="btn btn-primary py-3 px-5"  name="dangnhap">Đăng nhập</button>
+              </div>
+              <p>Bạn chưa có tài khoản? <a href="contact.php">Đăng ký tại đây</a></p>
+          </form>
+          </div> 
         </div>
-        <!-- <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập</a></p> -->
-<!-- 
-        <div class="col-md-9 d-flex">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.841518442039!2d105.76804037475408!3d10.029933690077037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0895a51d60719%3A0x9d76b0035f6d53d0!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1695122208256!5m2!1svi!2s" width="6300" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>  -->
+
       </div>
     </section>
+
+ 
 
 <?php
    @include('footer.php');

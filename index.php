@@ -30,7 +30,7 @@ $actitive = "index";
 	            <div class="col-sm-12 ftco-animate text-center">
 	              <h1 class="mb-2">Món ăn được đánh giá cao</h1>
 	              <h2 class="subheading mb-4">Ưu đãi &amp; Giảm giá </h2>
-	              <p><a href="#" class="btn btn-primary">Xem chi tiết</a></p>
+	              <p><a href="" class="btn btn-primary">Xem chi tiết</a></p>
 	            </div>
 
 	          </div>
@@ -162,12 +162,12 @@ $actitive = "index";
     						<h3><a href="#"><?php echo $result_new['MA_TEN']; ?></a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="price-sale"><?php echo $result_new['MA_GIA']; ?></span></p>
+		    						<p class="price"><span class="price-sale"><?php echo number_format($result_new['MA_GIA']).' '.'vnđ'; ?></span></p>
 		    					</div>
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="chitietmonan.php?maid=<?php echo ($result_new['MA_MA'])?>" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<span><i class="ion-ios-menu"></i></span>
 	    							</a>
 	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">

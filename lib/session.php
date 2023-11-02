@@ -77,7 +77,7 @@ public static function check_Customer_Session(){
 public static function check_Customer_Login(){
    self::init();
    if (self::get("customer_login") == true) {
-    header("Location:../index.php");
+    header("Location:index.php");
    }
 }
 

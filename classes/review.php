@@ -91,14 +91,14 @@ class review {
                 BV_NOIDUNG = '$BV_NOIDUNG',
                 BV_TINHTRANG = '$BV_TINHTRANG', 
                 BV_HINHANH = '$unique_image'
-                WHERE BV_MA = '$id'";
+                WHERE BV_MA = '$id';";
             }else{
                 //Không chọn ảnh
                 $query = "UPDATE baiviet SET 
                 BV_TIEUDE = '$BV_TIEUDE', 
                 BV_NOIDUNG = '$BV_NOIDUNG',
-                BV_TINHTRANG = '$BV_TINHTRANG', 
-                WHERE BV_MA = '$id'";
+                BV_TINHTRANG = '$BV_TINHTRANG'
+                WHERE BV_MA = $id;";
             }
             $result = $this->db->update($query);
             if($result){

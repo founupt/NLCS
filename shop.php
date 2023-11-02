@@ -46,13 +46,13 @@ $actitive = "shop";
     						<h3><a href="#"><?php echo $result['MA_TEN']?></a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc"><?php echo $result['MA_GIA']?></span><span class="price-sale">23.000vnd</span></p>
+		    						<p class="price"><span class="price-sale"><?php echo number_format ($result['MA_GIA']).' '.'vnđ';?></span></p>
 		    					</div>
 	    					</div>
 						
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+								<a href="chitietmonan.php?maid=<?php echo ($result['MA_MA'])?>" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<span><i class="ion-ios-menu"></i></span>
 	    							</a>
 	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">

@@ -92,10 +92,10 @@
 			  <li class="nav-item dropdown">
 				<?php
 					if(session::get("customer_login") == false) {
-						echo '	<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Đăng nhập với tư cách</a>
+						echo '	<a class="nav-link dropdown-toggle" href="congtacvien/login.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Đăng nhập cộng tác viên</a>
 								<div class="dropdown-menu" aria-labelledby="dropdown04">
 									<a class="dropdown-item" href="congtacvien/login.php">Cộng tác viên</a>
-									<a class="dropdown-item" href="login.php">Khách hàng</a>
+									
 								</div>
 								<li class="nav-item"><a href="contact.php" class="nav-link">Đăng kí</a></li>';
 					}	
@@ -106,13 +106,14 @@
 										session_destroy();
 										}
 										?>
-										<a href="?action=logout">Logout</a>
+										<a href="?action=logout.php">Logout</a>
                     			</div>
 								<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>';
 					}
 				?>     
 	        </ul>
 	      </div>
+
 	    </div>
 	  </nav>
     <!-- END nav -->
