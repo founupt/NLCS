@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <div class="container">`
+<div class="slider-item" style="background-image: url(images/br.jpg);">
 	<section id="content">
 		<form action="login.php" method="post">
 			<h1>Cộng tác viên</h1>
@@ -42,5 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>button -->
 	</section><!-- content -->
 </div><!-- container -->
+</div>
 </body>
 </html>

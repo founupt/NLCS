@@ -14,10 +14,12 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	outline: 0;
 	font-size: 100%;
 	vertical-align: baseline;
-	background: transparent;
+	background-image: url(/images/br.jpg);
 }
 body {
-	background: honeydew;
+	background-image: url(/images/br.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 	color: #000;
 	font: 14px Arial;
 	margin: 100px auto;
