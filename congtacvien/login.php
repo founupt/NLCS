@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$login_check = $class->login_CTV($CTV_username,$CTV_pass);
   }
 ?>
+<div class="slider-item" style="background-image: url(../images/background.jpg);">
 
 <!DOCTYPE html>
 <head>
@@ -17,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <title>Đăng nhập</title>
     <link rel="stylesheet" type="text/css" href="css/stylelogin.css" media="screen" />
 </head>
+
 <body>
-<div class="container">`
-<div class="slider-item" style="background-image: url(images/br.jpg);">
+<div class="container">
 	<section id="content">
 		<form action="login.php" method="post">
 			<h1>Cộng tác viên</h1>

@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" type="text/css" href="css/stylelogin.css" media="screen" />
 </head>
 <body>
+<div class="slider-item" style="background-image: url(../images/background.jpg);">
+
 <div class="container">
 	<section id="content">
 		<form action="login.php" method="post">

@@ -14,21 +14,34 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	outline: 0;
 	font-size: 100%;
 	vertical-align: baseline;
-	background: honeydew;
+	background-image: url('images/br.jpg');
 }
 body {
     background-image: url('images/br.jpg');
     background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ khu vực body */
 }
 
-body {
+/* body {
 	background: honeydew;
 	color: #000;
 	font: 14px Arial;
 	margin: 100px auto;
 	padding: 0;
 	position: relative;
+} */
+.slider-item {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 100vh; /* Đặt chiều cao bằng 100% chiều cao của màn hình */
+    color: #000; /* Màu văn bản trong phần tử .slider-item */
+    font: 14px Arial; /* Kiểu font và kích thước font cho văn bản trong phần tử .slider-item */
+    margin: 0; /* Đặt lề bên ngoài của phần tử .slider-item thành 0 */
+    padding: 0; /* Đặt khoảng cách bên trong phần tử .slider-item thành 0 */
+    position:relative;
 }
+
 h1{ font-size:28px;}
 h2{ font-size:26px;}
 h3{ font-size:18px;}
@@ -52,7 +65,7 @@ form:after {
 	clear: both;
 	visibility: hidden;
 }
-.container { margin: 25px auto; position: relative; width: 900px; }
+.container { position: relative; }
 #content {
 	background: honeydew;
 	margin-top: 50px;
@@ -73,7 +86,7 @@ form:after {
 	position: relative;
 	text-align: center;
 	text-shadow: 0 1px 0 #fff;
-	width: 400px;
+	width: 450px;
 }
 #content h1 {
 	color:cadetblue ;

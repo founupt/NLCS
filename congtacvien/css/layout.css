@@ -52,7 +52,8 @@ a:hover {
 ----------------------------------------------- */
 .container_12,
 .container_16 {
-	background:honeydew ;
+	/* background:honeydew ; */
+	background-image: url(/images/background.jpg);
 }
 
 
