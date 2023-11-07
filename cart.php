@@ -71,7 +71,7 @@ $actitive = "cart";
 					          	</div>
 					          </td>
 						        
-						        <td class="total">65.000vnds</td>
+						        <td class="total">65.000vnd</td>
 						      </tr><!-- END TR-->
 						    </tbody>
 						  </table>
