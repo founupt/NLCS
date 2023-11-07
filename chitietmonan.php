@@ -5,12 +5,21 @@ ob_start();
  ?>
  <?php
 	if (!isset($_GET['maid']) || $_GET['maid'] == NULL) {
-		// echo "<script>window.location = '404.php'</script>";
+		
 	} else {
 		$id = $_GET['maid'];
 	}if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-		$GH_SOLUONG = $_POST['GH_SOLUONG'];
-        $addcart = $ct-> add_cart($GH_SOLUONG, $id);
+		$GH_SL = $_POST['GH_SL'];
+        $addcart = $ct-> add_cart($GH_SL, $id);
+		// Kiểm tra xem người dùng đã đăng nhập hay chưa
+		if (isset($_SESSION['KH_MA'])) {
+			// Nếu đã đăng nhập, chuyển đến trang giỏ hàng
+			header("Location: cart.php");
+			exit;
+		}
+		else{
+			header("Location: contact.php");
+		}
     }  
  ?>
 
@@ -72,10 +81,21 @@ ob_start();
 	          	</div>
 	          	<div class="w-100"></div>
 	          	<div class="col-md-12">
-	          		<!-- <p style="color: #000;">600 kg available</p> -->
 	          	</div>
           	</div>
-          	<p><a href="cart.php" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+			  <p><a href="cart.php" onclick="redirectToLogin()" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+
+			<script>
+			function redirectToLogin() {
+				// Kiểm tra xem người dùng đã đăng nhập hay chưa
+				if (!<?php echo isset($_SESSION['KH_MA']) ? 'true' : 'false'; ?>) {
+					// Nếu chưa đăng nhập, chuyển họ đến trang đăng nhập hoặc thông báo đăng nhập
+					alert("Vui lòng đăng nhập để thêm vào giỏ hàng!");
+					window.location.href = "contact.php"; 
+				}
+			}
+			</script>
+
     			</div>
                 <?php
                   }

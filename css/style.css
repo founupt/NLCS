@@ -6480,6 +6480,7 @@ button.bg-dark:focus {
 
 .mb-3,
 .my-3 {
+  margin-left: 128px;
   margin-bottom: 1rem !important; }
 
 .ml-3,

@@ -65,14 +65,15 @@ form:after {
 }
 .container {  position: relative;  }
 #content {
-	background:honeydew;
+	/* background:honeydew;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
 	-webkit-box-shadow: 0 1px 0 #fff inset;
 	-moz-box-shadow: 0 1px 0 #fff inset;
 	-ms-box-shadow: 0 1px 0 #fff inset;
 	-o-box-shadow: 0 1px 0 #fff inset;
 	box-shadow: 0 1px 0 #fff inset;
-	border: 1px solid #c4c6ca;
+	border: 1px solid #c4c6ca; */
+	margin-top: 50px;
 	margin: 0 auto;
 	padding: 50px 0 0;
 	position:relative;
@@ -150,7 +151,7 @@ form:after {
 	top: 0;
 	z-index: -2;
 }
-#content form { margin: 0 20px; position: relative }
+#content form { margin: 100px 20px; position: relative }
 #content form input[type="text"],
 #content form input[type="password"] {
 	-webkit-border-radius: 3px;
