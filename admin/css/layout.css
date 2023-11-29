@@ -117,6 +117,7 @@ body {
   }
 		
   .box h2 {
+	  text-align: center;
 	  font-size:1.2em;
 	  font-weight:bold;
 	  color:cadetblue;
@@ -334,7 +335,8 @@ body {
   table.form .col1{width:20%;}
   table.form .col2{}
   table.form input, table.form select{
-	  font-size: 15px;
+	  font-size: 18px;
+	  margin: 5px;
 	  padding: 4px 4px 5px 4px;
 	  border-top: 1px solid #b3b3b3;
 	  border-left: 1px solid #b3b3b3;
@@ -832,7 +834,9 @@ body {
   line-height: 30px; border-bottom:1px solid #e6e6e6;
   }
   tr.odd:hover, tr.even:hover { background:#f6f6f6; }
-  tr.odd td, tr.even td{ padding-left:5px; }
+  tr.odd td, tr.even td{ 
+	text-align: center;
+	padding-left:5px; }
   
   
   

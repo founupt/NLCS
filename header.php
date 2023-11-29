@@ -2,7 +2,6 @@
 	// @include('config/config.php');
 	@include('lib/session.php');
 	session::init();
-	session_destroy();
 
 	// session::check_Customer_Session();
 
@@ -93,21 +92,15 @@
 	          
 			  <li class="nav-item dropdown">
 				<?php
-					if(session::get("customer_login") == false) {
+					$login = session::get ('customer_login');
+					if($login == false) {
 						echo '	<a class="nav-link" href="congtacvien/login.php" >Đăng nhập cộng tác viên</a>
 								
-								<li class="nav-item"><a href="contact.php" class="nav-link">Đăng kí</a></li>';
+								<li class="nav-item"><a href="contact.php" class="nav-link">Đăng nhập</a></li>';
 					}	
-					else if(session::get("customer_login") == true) {
-						echo '	<div class="">
-										<?php
-										if(isset($_GET["action"])&& $_GET["action"]=="logout"){
-										session_destroy();
-										}
-										?>
-										<a href="?action=logout.php">Logout</a>
-                    			</div>
-								<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>';
+					else {
+						echo '	<li class="nav-item"><a class="nav-link">Xin chào '.session::get('KH_TEN').'</a></li>
+						<li class="nav-item"><a href="logout.php" class="nav-link">Đăng xuất</a></li>';
 					}
 				?>     
 	        </ul>

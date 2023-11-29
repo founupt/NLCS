@@ -4,16 +4,10 @@
             <ul class="section menu">
                 <li><a class="menuitem">Quản lí tài khoản</a>
                     <ul class="submenu">
-                        <li><a href="addcat.php">Thêm tài khoản </a> </li>
-                        <li><a href="catlist.php">Danh sách tài khoản</a> </li>
+                        <li><a href="inforkh.php">Danh sách tài khoản</a> </li>
                     </ul>
                 </li>
-                <!-- <li><a class="menuitem">Thương hiệu sản phẩm</a>
-                    <ul class="submenu">
-                        <li><a href="addbrand.php">Thêm thương hiệu</a> </li>
-                        <li><a href="brandlist.php">Danh sách thương hiệu</a> </li>
-                    </ul>
-                </li> -->
+            
                 <li><a class="menuitem">Quản lý món ăn</a>
                     <ul class="submenu">
                         <li><a href="addproduct.php">Thêm món ăn</a> </li>

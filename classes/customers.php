@@ -59,13 +59,14 @@ class customers
         }else{
             $check_login = "SELECT * FROM khachhang WHERE KH_USERNAME = '$KH_USERNAME' AND KH_PASS = '$KH_PASS'";
             $result_check = $this->db->select($check_login);
-            if($result_check !=false){
+            if($result_check != false){
                 $value = $result_check ->fetch_assoc();
                 session::set("customer_login",true);
                 session::set('KH_MA',$value['KH_MA']);
                 session::set('KH_USERNAME',$value['KH_USERNAME']);
                 session::set('KH_TEN',$value['KH_TEN']);
                 session::check_Customer_Login();
+                header('location: index.php');
             }else{
                 $alert = "<span class='error'>Tên hoặc mật khẩu không đúng!!!</span>";
             return $alert;
