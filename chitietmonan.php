@@ -111,7 +111,6 @@ ob_start();
           <div class="col-md-12 heading-section text-center ftco-animate">
           	<span class="subheading">Các sản phẩm khác</span>
             <h2 class="mb-4">Có thể bạn muốn xem </h2>
-            <!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p> -->
           </div>
         </div>   		
     	</div>

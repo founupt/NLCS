@@ -85,14 +85,7 @@
                     </td>
                 </tr>
 				
-                <!-- <tr>
-                    <td>
-                        <label>Màu sản phẩm</label>
-                    </td>
-                    <td>
-                        <input type="text" name="SP_MAU" placeholder="Nhập màu sản phẩm" class="medium" />
-                    </td>
-                </tr> -->
+    
 
 				<tr>
                     <td>

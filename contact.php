@@ -6,10 +6,10 @@ $actitive = "contact";
 
 ?>
 <?php
-$servername = "localhost"; // Thay bằng tên máy chủ CSDL của bạn
-$username = "root"; // Thay bằng tên người dùng CSDL của bạn
-$password = ""; // Thay bằng mật khẩu CSDL của bạn
-$database = "food"; // Thay bằng tên CSDL của bạn
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$database = "food"; 
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -30,14 +30,11 @@ if (!$conn) {
           $KH_DIACHI= $_POST["KH_DIACHI"];
 			    
 
-  			//Kiểm tra đi.ều kiện bắt buộc đối với các field KHông được bỏ trống
 			  if ($KH_USERNAME == "" || $KH_PASS == ""||$KH_DIACHI == "" || $KH_TEN == "" || $KH_SDT == ""|| $KH_EMAIL == "" ) {
 				   echo "bạn vui lòng nhập đầy đủ thông tin";
-				//    if ($KH_PASSWORD !== $confirm_password) {
-				// 	echo "Mật khẩu và xác nhận mật khẩu không trùng khớp";
-				// }
+			
   			}else{
-  					// Kiểm tra tài khoản đã tồn tại chưa
+  					
           $sql = "SELECT * FROM khachhang WHERE KH_USERNAME = '".$KH_USERNAME."'";
 					$kt=mysqli_query($conn, $sql);
 					if(mysqli_num_rows($kt)  > 0){
